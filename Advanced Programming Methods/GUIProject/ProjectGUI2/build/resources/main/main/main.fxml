@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="425.0" minWidth="650.0" prefHeight="425.0" prefWidth="665.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller">
+   <right>
+      <VBox alignment="CENTER" onMouseClicked="#deselectModel" prefHeight="395.0" prefWidth="110.0" spacing="20.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER" minHeight="132.0" prefHeight="132.0" prefWidth="75.0" spacing="2.0">
+               <children>
+                  <Label text="Choose entity" />
+                  <RadioButton fx:id="studentsBtn" mnemonicParsing="false" onAction="#enableBtns" prefHeight="18.0" prefWidth="87.0" selected="true" text="Students" textAlignment="JUSTIFY">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="domain" />
+                     </toggleGroup></RadioButton>
+                  <RadioButton fx:id="homeworksBtn" mnemonicParsing="false" onAction="#enableBtns" prefHeight="18.0" prefWidth="86.0" text="Homeworks" textAlignment="JUSTIFY" toggleGroup="$domain" />
+                  <RadioButton fx:id="gradesBtn" mnemonicParsing="false" onAction="#selectButton3" prefHeight="18.0" prefWidth="87.0" text="Grades" toggleGroup="$domain" />
+               </children>
+               <VBox.margin>
+                  <Insets top="1.0" />
+               </VBox.margin>
+            </VBox>
+            <Button fx:id="addBtn" mnemonicParsing="false" onAction="#handleAddStudent" text="Add" />
+            <Button fx:id="removeBtn" mnemonicParsing="false" onAction="#handleDeleteStudent" text="Remove" />
+            <Button fx:id="updateBtn" mnemonicParsing="false" onAction="#handleUpdateStudent" text="Update" />
+         </children></VBox>
+   </right>
+   <center>
+      <TabPane prefHeight="400.0" prefWidth="443.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab onSelectionChanged="#selectButton" text="Students">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tableView" layoutY="-1.0" onMouseClicked="#selectButton" prefHeight="300.0" prefWidth="540.0" AnchorPane.bottomAnchor="95.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                            <TableColumn fx:id="IdColumn" prefWidth="57.20001143217087" text="ID" />
+                            <TableColumn fx:id="firstNameColumn" prefWidth="118.0" text="First Name" />
+                              <TableColumn fx:id="lastNameColumn" prefWidth="124.79998779296875" text="Last Name" />
+                              <TableColumn fx:id="groupColumn" prefWidth="83.0" text="Group" />
+                              <TableColumn fx:id="emailColumn" minWidth="0.0" prefWidth="155.0" text="Email" />
+                          </columns>
+                        </TableView>
+                        <Accordion layoutY="300.0" prefHeight="103.0" prefWidth="555.0">
+                          <panes>
+                            <TitledPane animated="false" prefHeight="103.0" prefWidth="554.0" text="Search">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="540.0" spacing="30.0" AnchorPane.bottomAnchor="31.199999999999996" AnchorPane.leftAnchor="12.0" AnchorPane.topAnchor="-7.599999999999994">
+                                             <children>
+                                                <TextField fx:id="idStudentField" onKeyTyped="#searchStudents" prefHeight="26.0" prefWidth="42.0" promptText="Id" />
+                                                <TextField fx:id="firstNameField" onKeyTyped="#searchStudents" prefHeight="26.0" prefWidth="86.0" promptText="First Name" />
+                                                <TextField fx:id="lastNameField" onKeyTyped="#searchStudents" prefHeight="26.0" prefWidth="86.0" promptText="Last Name" />
+                                                <TextField fx:id="groupField" onKeyTyped="#searchStudents" prefHeight="26.0" prefWidth="66.0" promptText="Group" />
+                                                <TextField fx:id="emailFiedl" onKeyTyped="#searchStudents" prefHeight="26.0" prefWidth="98.0" promptText="Email" />
+                                             </children>
+                                          </HBox>
+                                          <Button layoutX="14.0" layoutY="40.0" mnemonicParsing="false" onAction="#clearStudentSearchFields" prefHeight="26.0" prefWidth="502.0" text="Clear Fields" AnchorPane.leftAnchor="12.0" />
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </TitledPane>
+                          </panes>
+                        </Accordion>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab onSelectionChanged="#selectButton2" text="Homeworks">
+            <content>
+              <AnchorPane minHeight="180.0" minWidth="200.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tableView2" layoutY="-1.0" onMouseClicked="#selectButton2" prefHeight="333.0" prefWidth="490.0" AnchorPane.bottomAnchor="95.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                            <TableColumn fx:id="IdHomeworkColumn" prefWidth="45.20001143217087" text="ID" />
+                            <TableColumn fx:id="startWeekColumn" prefWidth="74.60000991821289" text="Start Week" />
+                              <TableColumn fx:id="deadlineWeekColumn" prefWidth="90.4000244140625" text="Deadline Week" />
+                              <TableColumn fx:id="descriptionColumn" prefWidth="326.79998779296875" text="Description" />
+                          </columns>
+                        </TableView>
+                        <Accordion layoutY="300.0" prefHeight="103.0" prefWidth="555.0">
+                          <panes>
+                            <TitledPane animated="false" text="Search">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="540.0" spacing="30.0" AnchorPane.bottomAnchor="31.199999999999996" AnchorPane.leftAnchor="12.0" AnchorPane.topAnchor="-7.599999999999994">
+                                             <children>
+                                                <TextField fx:id="idHomeworkField" onKeyTyped="#searchHomeworks" prefHeight="26.0" prefWidth="42.0" promptText="Id" />
+                                                <TextField fx:id="startWeekField" onKeyTyped="#searchHomeworks" prefHeight="26.0" prefWidth="86.0" promptText="Start Week" />
+                                                <TextField fx:id="deadlineWeekField" onKeyTyped="#searchHomeworks" prefHeight="26.0" prefWidth="86.0" promptText="Deadline Week" />
+                                                <TextField fx:id="descriptionField" onKeyTyped="#searchHomeworks" prefHeight="26.0" prefWidth="195.0" promptText="Description" />
+                                             </children>
+                                          </HBox>
+                                          <Button layoutX="14.0" layoutY="40.0" mnemonicParsing="false" onAction="#clearHomeworkSearchFields" prefHeight="26.0" prefWidth="502.0" text="Clear Fields" AnchorPane.leftAnchor="12.0" />
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </TitledPane>
+                          </panes>
+                        </Accordion>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab onSelectionChanged="#selectButton3" text="Grades">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tableView3" onMouseClicked="#selectButton3" prefHeight="396.0" prefWidth="555.2" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                              <TableColumn fx:id="gradeId" prefWidth="40.0" text="ID" />
+                            <TableColumn fx:id="gradeStudentId" prefWidth="40.0" text="St. ID" />
+                            <TableColumn fx:id="gradeHomeworkId" prefWidth="40.0" text="H. ID" />
+                              <TableColumn fx:id="gradeDate" prefWidth="100.0" text="Date" />
+                              <TableColumn fx:id="gradeValue" prefWidth="75.0" text="Grade" />
+                              <TableColumn fx:id="gradeTeacher" prefWidth="90.39996337890625" text="Teacher" />
+                              <TableColumn fx:id="gradeFeedback" prefWidth="152.00006103515625" text="Feedback" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab onSelectionChanged="#selectButton4" text="Raports">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ToolBar prefHeight="39.0" prefWidth="555.0" AnchorPane.bottomAnchor="357.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <items>
+                              <Button mnemonicParsing="false" text="Button" />
+                            <Button mnemonicParsing="false" text="Button" />
+                              <Button mnemonicParsing="false" text="Button" />
+                              <Button mnemonicParsing="false" text="Button" />
+                          </items>
+                        </ToolBar>
+                        <TableView layoutY="39.0" prefHeight="357.0" prefWidth="555.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="39.0">
+                          <columns>
+                            <TableColumn prefWidth="48.79998701810837" text="St. ID" />
+                            <TableColumn prefWidth="101.60004043579102" text="First Name" />
+                              <TableColumn prefWidth="109.60002136230469" text="Last Name" />
+                              <TableColumn prefWidth="73.5999755859375" text="Group" />
+                              <TableColumn prefWidth="104.0" text="Email" />
+                              <TableColumn prefWidth="99.20001220703125" text="Average Grade" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+</BorderPane>

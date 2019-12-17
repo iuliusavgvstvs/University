@@ -1,0 +1,2 @@
+The program does almost everything that ConsoleProject does(see ConsoleProject.txt) 
+but this time using a graphical user interface.

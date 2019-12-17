@@ -1,0 +1,15 @@
+The program lets you perform CRUD operations on a list of students and homeworks
+through a command line interface. You can also give a student a grade for a 
+specific homework.
+The data persistance is a XML document for every entity(student, homework, grade).
+The program contains tests(junit), validators for entities, exceptions as well,
+writing and loading text from XML files with DOM parser. 
+Every time you grade a student, the program creates a new XML document with the name of
+the graded student wich contains details about the student, homework and grade.
+There are also filter functions that lets you filter the students and grades by specific
+criteria(for example: all the students from a group or all the students with a 
+given homework).
+
+
+
+

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane minWidth="250.0" prefHeight="350.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EditGradeController">
+   <children>
+      <Pane prefHeight="325.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="250.0" text="Choose grade's details" />
+            <VBox layoutX="20.0" layoutY="46.0" prefHeight="201.0" prefWidth="223.0" spacing="17.0">
+               <children>
+                  <ComboBox fx:id="studs" onAction="#refreshHomeworks" prefHeight="26.0" prefWidth="201.0" promptText="Student" />
+                  <ComboBox fx:id="homeworks" onAction="#setGrade" prefHeight="26.0" prefWidth="201.0" promptText="Homework" />
+                  <ComboBox fx:id="grades" prefHeight="26.0" prefWidth="74.0" promptText="Grade" />
+                  <Label text="Teacher">
+                     <graphic>
+                        <TextField fx:id="prof" />
+                     </graphic>
+                  </Label>
+                  <Label text="Feedback">
+                     <graphic>
+                        <TextField fx:id="feedback" />
+                     </graphic>
+                  </Label>
+               </children>
+            </VBox>
+            <Button layoutX="132.0" layoutY="275.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="46.0" prefWidth="76.0" text="Cancel" />
+            <Button layoutX="36.0" layoutY="275.0" minHeight="26.0" minWidth="76.0" mnemonicParsing="false" onAction="#handleSave" prefHeight="46.0" prefWidth="76.0" text="Add" />
+         </children></Pane>
+   </children>
+</AnchorPane>

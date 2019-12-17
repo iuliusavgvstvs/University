@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane minHeight="350.0" minWidth="250.0" prefHeight="350.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EditHomeworkController">
+   <children>
+      <Pane minHeight="350.0" minWidth="250.0" prefHeight="350.0" prefWidth="250.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="250.0" text="Insert homework's details" />
+            <VBox layoutX="11.0" layoutY="48.0" prefHeight="302.0" prefWidth="239.0" spacing="30.0">
+               <children>
+                  <Label text="Id">
+                     <graphic>
+                        <TextField fx:id="IdField" editable="false" />
+                     </graphic></Label>
+                  <Label text="Start week">
+                     <graphic>
+                        <TextField fx:id="startWeekField" editable="false" />
+                     </graphic></Label>
+                  <Label text="Deadline week">
+                     <graphic>
+                        <TextField fx:id="deadlineWeekField" />
+                     </graphic></Label>
+                  <Label text="Description">
+                     <graphic>
+                        <TextField fx:id="descriptionField" />
+                     </graphic></Label>
+               </children>
+            </VBox>
+            <Button layoutX="36.0" layoutY="275.0" mnemonicParsing="false" onAction="#handleSave" prefHeight="42.0" prefWidth="76.0" text="Add" />
+            <Button layoutX="132.0" layoutY="275.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="42.0" prefWidth="76.0" text="Cancel" />
+         </children></Pane>
+   </children>
+</AnchorPane>
