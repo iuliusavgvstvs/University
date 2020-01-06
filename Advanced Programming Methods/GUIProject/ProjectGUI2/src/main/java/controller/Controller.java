@@ -2,6 +2,7 @@ package controller;
 
 import domain.Grade;
 import domain.Homework;
+import domain.Raport;
 import domain.Student;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,6 +17,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import service.GradeService;
 import service.HomeworkService;
+import service.RaportService;
 import service.StudentService;
 
 import utils.events.Event;
@@ -37,11 +39,10 @@ public class Controller implements Observer<Event> {
     StudentService studentService;
     HomeworkService homeworkService;
     GradeService gradeService;
+    RaportService raportService;
     ObservableList<Student> model = FXCollections.observableArrayList();
     ObservableList<Homework> model2 = FXCollections.observableArrayList();
     ObservableList<Grade> model3 = FXCollections.observableArrayList();
-    //Iterable<Student> searchedStudents = studentService.getAll();
-    //Iterable<Homework> searchedHomeworks = homeworkService.getAll();
 
     @FXML
     TableView<Student> tableView;
@@ -124,6 +125,16 @@ public class Controller implements Observer<Event> {
     Button removeBtn;
 
 
+    @FXML
+    Button gradeRaportBtn;
+    @FXML
+    Button hardestRaportBtn;
+    @FXML
+    Button examRaportBtn;
+    @FXML
+    Button hmsattimeRaportBtn;
+
+
     public void setStudentService(StudentService studService){
         studentService= studService;
         studentService.addObserver(this);
@@ -140,6 +151,10 @@ public class Controller implements Observer<Event> {
         gradeService= studService;
         gradeService.addObserver(this);
         initModel3(gradeService.getAll());
+    }
+
+    public void setRaportService(RaportService rapService){
+        raportService=rapService;
     }
 
     @FXML
@@ -236,10 +251,6 @@ public class Controller implements Observer<Event> {
         tableView.getSelectionModel().clearSelection();
         tableView2.getSelectionModel().clearSelection();
     }
-    //@Override
-   // public void update(StudentChangeEvent studentChangeEvent) {
-    //    initModel();
-   // }
 
 
     @FXML
@@ -253,6 +264,7 @@ public class Controller implements Observer<Event> {
         }
     }
 
+    @FXML
     public void handleDeleteStudent(ActionEvent actionEvent) {
         if(studentsBtn.isSelected()) {
             Student selected = tableView.getSelectionModel().getSelectedItem();
@@ -290,6 +302,17 @@ public class Controller implements Observer<Event> {
                 MessageAlert.showErrorMessage(null,"There's no homework selected.");
         }
     }
+
+    @FXML
+    public void showGradeperStudent(ActionEvent ev) {
+        for( Object rs : raportService.getAverage(0)){
+            Raport r = (Raport) rs;
+            System.out.println(r.getSt().getDetails());
+            System.out.println(r.getAverage());
+        }
+
+    }
+
     @FXML
     private void selectButton() {
         studentsBtn.fire();
@@ -309,12 +332,113 @@ public class Controller implements Observer<Event> {
         disableBtns();
     }
     @FXML
-    private void selectButton4(){
-        disableBtns();
-        addBtn.setDisable(true);
+    public void showRaportDialog() {
+        try {
+            // create a new stage for the popup dialog.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("showraport.fxml"));
+
+            AnchorPane root = loader.load();
+
+            // Create the dialog Stage.
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Average grades");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            //dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(root);
+            dialogStage.setScene(scene);
+
+            EditRaportController editMessageViewController = loader.getController();
+            editMessageViewController.setService(dialogStage, raportService.getAverage(0),false);
+
+            dialogStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    public void showRaportDialog2() {
+        try {
+            // create a new stage for the popup dialog.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("showraport.fxml"));
+
+            AnchorPane root = loader.load();
+
+            // Create the dialog Stage.
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Hardest homeworks");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            //dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(root);
+            dialogStage.setScene(scene);
+
+            EditRaportController editMessageViewController = loader.getController();
+            editMessageViewController.setService(dialogStage, raportService.getAverageByHomeworks(),true);
+
+            dialogStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
+    @FXML
+    public void showRaportDialog3() {
+        try {
+            // create a new stage for the popup dialog.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("showraport.fxml"));
 
+            AnchorPane root = loader.load();
+
+            // Create the dialog Stage.
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Average grades");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            //dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(root);
+            dialogStage.setScene(scene);
+
+            EditRaportController editMessageViewController = loader.getController();
+            editMessageViewController.setService(dialogStage, raportService.getAverage(4),false);
+
+            dialogStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void showRaportDialog4() {
+        try {
+            // create a new stage for the popup dialog.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("showraport.fxml"));
+
+            AnchorPane root = loader.load();
+
+            // Create the dialog Stage.
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Average grades");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            //dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(root);
+            dialogStage.setScene(scene);
+
+            EditRaportController editMessageViewController = loader.getController();
+            editMessageViewController.setService(dialogStage, raportService.getGradedAtTime(),false);
+
+            dialogStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     public void showStudentEditDialog(Student st) {
         try {
             // create a new stage for the popup dialog.

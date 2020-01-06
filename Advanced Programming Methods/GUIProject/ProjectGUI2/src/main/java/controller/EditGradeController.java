@@ -1,5 +1,4 @@
 package controller;
-
 import domain.Grade;
 import domain.Homework;
 import domain.Student;
@@ -26,24 +25,18 @@ public class EditGradeController<ID> {
     private HomeworkService<ID, Homework<ID>> homeworkService;
     Stage dialogStage;
     Grade<ID> grade;
-  //  Iterable<Student> sts;
     Iterable<Homework> hms;
-    //ArrayList grds;
 
 
     @FXML
     ComboBox studs;
-
     @FXML
     ComboBox homeworks;
-
-
     @FXML
     ComboBox grades;
 
     @FXML
     TextField prof;
-
     @FXML
     TextField feedback;
 

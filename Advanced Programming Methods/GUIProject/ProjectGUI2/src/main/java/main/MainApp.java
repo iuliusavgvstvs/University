@@ -3,6 +3,7 @@ package main;
 import controller.Controller;
 import domain.Grade;
 import domain.Homework;
+import domain.Raport;
 import domain.Student;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -16,6 +17,7 @@ import repository.HomeworkXMLRepo;
 import repository.StudentXMLRepo;
 import service.GradeService;
 import service.HomeworkService;
+import service.RaportService;
 import service.StudentService;
 
 import java.io.IOException;
@@ -30,6 +32,7 @@ public class MainApp extends Application {
     StudentService<String, Student<String>> service;
     HomeworkService<String, Homework<String>> service2;
     GradeService<String, Grade<String>> service3;
+    RaportService<String, Raport<String>>  service4;
 
     public static void main(String[] args) {
         launch(args);
@@ -43,6 +46,7 @@ public class MainApp extends Application {
         service = new StudentService<>(repo);
         service2 = new HomeworkService<>(repo2);
         service3 = new GradeService<>(repo3);
+        service4 = new RaportService<>(service, service3,service2);
 
 
         Parent root = null;
@@ -54,6 +58,7 @@ public class MainApp extends Application {
             messageTaskController.setStudentService(service);
             messageTaskController.setHomeworkService(service2);
             messageTaskController.setGradeService(service3);
+            messageTaskController.setRaportService(service4);
         }catch (IOException e){
             throw new RuntimeException((e));
         }

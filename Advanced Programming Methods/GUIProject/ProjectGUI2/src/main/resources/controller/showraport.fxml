@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="520.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EditRaportController">
+   <children>
+      <SplitPane dividerPositions="0.3353413654618474" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <TableView fx:id="table1" prefHeight="164.0" prefWidth="598.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                      <TableColumn fx:id="IdColumn" prefWidth="75.0" text="ID" />
+                      <TableColumn fx:id="firstNameColumn" prefWidth="196.80001068115234" text="First Name" />
+                        <TableColumn fx:id="lastNameColumn" minWidth="0.0" prefWidth="195.20001220703125" text="Last Name" />
+                        <TableColumn fx:id="groupColumn" prefWidth="107.99996948242188" text="Group" />
+                        <TableColumn fx:id="gradeColumn" prefWidth="125.60003662109375" text="Average Grade" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="598.0">
+               <children>
+                  <BarChart fx:id="chart" prefHeight="328.0" prefWidth="598.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <xAxis>
+                      <CategoryAxis fx:id="categoryAxis" label="Student name" side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis fx:id="numberAxis" label="Grade" side="LEFT" />
+                    </yAxis>
+                  </BarChart>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

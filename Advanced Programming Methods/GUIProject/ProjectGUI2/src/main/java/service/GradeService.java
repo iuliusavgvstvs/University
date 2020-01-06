@@ -2,6 +2,7 @@ package service;
 
 import domain.Entity;
 import domain.Grade;
+import domain.Raport;
 import domain.validators.GradeValidator;
 import domain.validators.ValidationException;
 import org.w3c.dom.Document;
@@ -24,6 +25,7 @@ import javax.xml.transform.stream.StreamResult;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Spliterator;
 import java.util.stream.Stream;
@@ -41,6 +43,9 @@ public class GradeService<ID, E extends Entity<ID>> implements Observable<GradeC
         repo = rep;
         val = new GradeValidator();
     }
+
+
+
 
 
     public Iterable<Grade<ID>> getAll() {

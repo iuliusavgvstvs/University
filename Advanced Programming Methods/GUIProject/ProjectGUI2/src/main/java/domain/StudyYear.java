@@ -33,7 +33,15 @@ public class StudyYear<ID> extends Entity<ID> {
             startofSemester=sem2;
         }
         WeekFields weekFields = WeekFields.of(Locale.getDefault());
-        return getNumberofWeeks()-startofSemester.get(weekFields.weekOfWeekBasedYear())+1;
+        if(getNumberofWeeks()>=39&&getNumberofWeeks()<=51&&startofSemester==sem1){
+            return getNumberofWeeks()-startofSemester.get(weekFields.weekOfWeekBasedYear())+1;
+        }
+        if(getNumberofWeeks()<=7&&startofSemester==sem1){
+            return 12+getNumberofWeeks()-1;
+        }
+        else
+            return getNumberofWeeks()-startofSemester.get(weekFields.weekOfWeekBasedYear())+1;
+
     }
 
     public static int getMotivationsBetween(int start, int end, HashSet<Integer> vec){

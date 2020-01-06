@@ -57,6 +57,20 @@ public class HomeworkService<ID, E extends Entity<ID>> implements Observable<Hom
         return hm;
     }
 
+    public float getWeight(ID id){
+        float weight=0;
+        for(Homework h: getAll()){
+            if(h.getId().equals(id)){
+                weight=h.getDeadlineWeek()-h.getStartWeek();
+                if(weight==0)
+                    weight=1;
+            }
+        }
+        if(weight==0)
+            return -1;
+        return weight;
+    }
+
 
     public Homework<ID> update(Homework<ID> entity) throws ValidationException {
         val.validate(entity);
