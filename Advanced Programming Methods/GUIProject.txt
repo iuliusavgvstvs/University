@@ -1,2 +1,17 @@
-The program does almost everything that ConsoleProject does(see ConsoleProject.txt) 
-but this time using a graphical user interface.
+The program does almost everything that ConsoleProject does but this time using a graphical 
+user interface. 
+
+The program lets you perform CRUD operations on a list of students and homeworks
+through a command line interface. You can also give a student a grade for a 
+specific homework.
+The data persistance is a XML document for every entity(student, homework, grade).
+The program contains tests(junit), validators for entities, exceptions as well,
+writing and loading text from XML files with DOM parser. 
+
+There are also filter functions that lets you filter the students and grades by specific
+criteria(for example: all the students from a group or all the students with a 
+given homework). The filters named as "Raports" are shown using a table view + a 
+bar chart in a new window every time the respectively button is pressed.
+	
+
+
