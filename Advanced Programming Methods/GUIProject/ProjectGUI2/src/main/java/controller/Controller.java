@@ -304,16 +304,6 @@ public class Controller implements Observer<Event> {
     }
 
     @FXML
-    public void showGradeperStudent(ActionEvent ev) {
-        for( Object rs : raportService.getAverage(0)){
-            Raport r = (Raport) rs;
-            System.out.println(r.getSt().getDetails());
-            System.out.println(r.getAverage());
-        }
-
-    }
-
-    @FXML
     private void selectButton() {
         studentsBtn.fire();
         enableBtns();
@@ -349,7 +339,7 @@ public class Controller implements Observer<Event> {
             dialogStage.setScene(scene);
 
             EditRaportController editMessageViewController = loader.getController();
-            editMessageViewController.setService(dialogStage, raportService.getAverage(0),false);
+            editMessageViewController.setService(dialogStage, raportService.getAverage(0, 10),false);
 
             dialogStage.show();
 
@@ -402,7 +392,7 @@ public class Controller implements Observer<Event> {
             dialogStage.setScene(scene);
 
             EditRaportController editMessageViewController = loader.getController();
-            editMessageViewController.setService(dialogStage, raportService.getAverage(4),false);
+            editMessageViewController.setService(dialogStage, raportService.getAverage(4, 10),false);
 
             dialogStage.show();
 
@@ -430,6 +420,33 @@ public class Controller implements Observer<Event> {
 
             EditRaportController editMessageViewController = loader.getController();
             editMessageViewController.setService(dialogStage, raportService.getGradedAtTime(),false);
+
+            dialogStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void showRaportDialog5() {
+        try {
+            // create a new stage for the popup dialog.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("showraport.fxml"));
+
+            AnchorPane root = loader.load();
+
+            // Create the dialog Stage.
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Average grades");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            //dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(root);
+            dialogStage.setScene(scene);
+
+            EditRaportController editMessageViewController = loader.getController();
+            editMessageViewController.setService(dialogStage, raportService.getAverage(0, 5),false);
 
             dialogStage.show();
 

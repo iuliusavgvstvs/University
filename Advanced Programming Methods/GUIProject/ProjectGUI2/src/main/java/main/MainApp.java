@@ -5,12 +5,11 @@ import domain.Grade;
 import domain.Homework;
 import domain.Raport;
 import domain.Student;
+import domain.validators.ValidationException;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import repository.GradeXMLRepo;
 import repository.HomeworkXMLRepo;
@@ -39,7 +38,7 @@ public class MainApp extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) throws IOException {
+    public void start(Stage primaryStage) throws IOException, ValidationException {
         repo = new StudentXMLRepo<>("Students.xml");
         repo2 = new HomeworkXMLRepo<>("Homeworks.xml");
         repo3 = new GradeXMLRepo<>("Grades.xml");
@@ -62,7 +61,6 @@ public class MainApp extends Application {
         }catch (IOException e){
             throw new RuntimeException((e));
         }
-        //Label label = new Label("Hello World");
         Scene scene = new Scene(root);
         primaryStage.setTitle("Grade Manager v1.0");
         primaryStage.setScene(scene);

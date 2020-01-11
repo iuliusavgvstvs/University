@@ -17,7 +17,7 @@ public class RaportService<ID, E extends Entity<ID>> {
     }
 
 
-    public Iterable<Raport> getAverage(int minAvg){
+    public Iterable<Raport> getAverage(double minAvg, double maxAvg){
         HashMap<Integer, Raport> hmap = new HashMap<>();
         for( Student s: studentService.getAll()) {
             float average = 0;
@@ -32,9 +32,10 @@ public class RaportService<ID, E extends Entity<ID>> {
                     }
                 }
             }
-            if (average > 0&&average>minAvg) {
+            average=average/weightsum;
+            if (average > 0&&average>=minAvg &&average<=maxAvg) {
                 DecimalFormat df = new DecimalFormat("#.##");
-                Raport rap = new Raport(s,Double.parseDouble(df.format(average / weightsum)));
+                Raport rap = new Raport(s,Double.parseDouble(df.format(average)));
                 hmap.put((Integer.parseInt((String) s.getId())), rap);
             }
         }

@@ -139,12 +139,13 @@
                               <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <HBox layoutX="29.6" layoutY="29.6" prefHeight="26.0" prefWidth="532.0" spacing="15.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0">
+                                          <HBox layoutX="11.6" layoutY="39.6" prefHeight="26.0" prefWidth="575.0" spacing="15.0" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="12.0">
                                              <children>
-                                                <Button fx:id="gradeRaportBtn" mnemonicParsing="false" onAction="#showRaportDialog" prefHeight="25.0" prefWidth="120.0" text="Grade/Student" />
-                                                <Button fx:id="hardestRaportBtn" mnemonicParsing="false" onAction="#showRaportDialog2" prefHeight="26.0" prefWidth="127.0" text="Hardest Homeworks" />
-                                                <Button fx:id="examRaportBtn" mnemonicParsing="false" onAction="#showRaportDialog3" prefHeight="25.0" prefWidth="120.0" text="Grades &gt; 4" />
-                                                <Button fx:id="hmsattimeRaportBtn" mnemonicParsing="false" onAction="#showRaportDialog4" prefHeight="26.0" prefWidth="113.0" text="Graded at Time" />
+                                                <Button fx:id="gradeRaportBtn" mnemonicParsing="false" onAction="#showRaportDialog" prefHeight="26.0" prefWidth="101.0" text="Grade/Student" />
+                                                <Button fx:id="hardestRaportBtn" mnemonicParsing="false" onAction="#showRaportDialog2" prefHeight="26.0" prefWidth="125.0" text="Hardest Homeworks" />
+                                                <Button fx:id="examRaportBtn" mnemonicParsing="false" onAction="#showRaportDialog3" prefHeight="26.0" prefWidth="90.0" text="Grades &gt; 4" />
+                                                <Button fx:id="hmsattimeRaportBtn" mnemonicParsing="false" onAction="#showRaportDialog4" prefHeight="26.0" prefWidth="100.0" text="Graded at Time" />
+                                                <Button mnemonicParsing="false" onAction="#showRaportDialog5" text="Bad Students" />
                                              </children>
                                           </HBox>
                                        </children></AnchorPane>
