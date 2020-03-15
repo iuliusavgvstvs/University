@@ -11,8 +11,4 @@ public interface ICrudRepository< E extends Entity> {
 
     E save(E entity);
 
-    E delete(int id);
-
-    E update(E entity);
-
 }

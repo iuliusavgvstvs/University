@@ -1,9 +1,8 @@
 package repository;
 
-
 import domain.Entity;
 
 public interface ICopilRepository<E extends Entity> extends ICrudRepository< E > {
-    public Iterable<E> findByVarsta();
+    E findOnebyName(String fname, String lname, int age);
 
 }

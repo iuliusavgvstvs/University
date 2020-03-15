@@ -3,7 +3,7 @@ plugins {
     id 'application'
 }
 
-group 'Lab2'
+group 'Lab3'
 version '1.0'
 
 sourceCompatibility = 1.8

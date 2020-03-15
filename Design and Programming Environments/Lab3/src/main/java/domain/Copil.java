@@ -19,31 +19,20 @@ public class Copil extends Entity {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
     public String getLastName() {
         return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
     }
 
     public int getAge() {
         return age;
     }
 
-    public void setAge(int age) {
-        this.age = age;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        return ((Copil) o).getId()==this.getId();
+        return ((Copil) o).getId()==this.getId() && ((Copil) o).getFirstName().equals(firstName) && ((Copil) o).getLastName().equals(lastName)
+                &&((Copil) o).getAge()==age;
     }
 
     @Override
@@ -53,9 +42,9 @@ public class Copil extends Entity {
 
     @Override
     public String toString() {
-        return  this.getId() + " '" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", age=" + age;
+        return  this.getId() +
+                " firstName= '" + firstName + '\'' +
+                ", lastName= '" + lastName + '\'' +
+                ", age= " + age;
     }
 }

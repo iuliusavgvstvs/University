@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="repository.UserDbRepositoryTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2020-03-15T17:54:51" hostname="HP-Envy" time="0.021">
+  <properties/>
+  <testcase name="findOnebyName" classname="repository.UserDbRepositoryTest" time="0.002"/>
+  <testcase name="save" classname="repository.UserDbRepositoryTest" time="0.001"/>
+  <testcase name="getLogin" classname="repository.UserDbRepositoryTest" time="0.017"/>
+  <system-out><![CDATA[19:54:51.359 [Test worker] INFO  repository.UserDbRepository - Login failed
+19:54:51.368 [Test worker] INFO  repository.UserDbRepository - Login failed
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

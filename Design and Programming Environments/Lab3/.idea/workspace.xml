@@ -39,7 +39,7 @@
         <item name="Atletism" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
-        <item name="Copil: table" type="3d80ac25:SqliteImplModel$Table" />
+        <item name="Users: table" type="3d80ac25:SqliteImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -79,6 +79,12 @@
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="build" type="c8890929:TasksNode$1" />
               </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Lab1" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="verification" type="c8890929:TasksNode$1" />
+              </path>
             </expand>
             <select />
           </tree_state>
@@ -89,9 +95,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit4 Test Class" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
@@ -116,6 +122,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="repository" />
       <recent name="main" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
@@ -126,43 +133,45 @@
       <recent name="C:\Users\Iuliu\OneDrive\Desktop\Facultate\Sem IV\MPP\Laboratoare\Lab2\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Lab2 [run]">
-    <configuration name="Lab2 [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.Lab2 [test]">
+    <configuration name="CopilDbRepositoryTest.findOne" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="--tests &quot;repository.CopilDbRepositoryTest.findOne&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value="clean" />
+            <option value=":cleanTest" />
+            <option value=":test" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="Lab2 [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CopilDbRepositoryTest.findOnebyName" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="--tests &quot;repository.CopilDbRepositoryTest.findOnebyName&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value="jar" />
+            <option value=":cleanTest" />
+            <option value=":test" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
     <configuration name="Lab2 [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -184,7 +193,7 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="Lab2 [testClasses]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Lab2 [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -195,7 +204,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="testClasses" />
+            <option value="test" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -203,17 +212,33 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="Lab1-1.0.jar" type="JarApplication" temporary="true">
-      <option name="JAR_PATH" value="$PROJECT_DIR$/build/libs/Lab1-1.0.jar" />
+    <configuration name="ProbaDbRepositoryTest.findOne" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;repository.ProbaDbRepositoryTest.findOne&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.Lab2 [test]" />
+        <item itemvalue="Gradle.CopilDbRepositoryTest.findOnebyName" />
+        <item itemvalue="Gradle.CopilDbRepositoryTest.findOne" />
+        <item itemvalue="Gradle.ProbaDbRepositoryTest.findOne" />
         <item itemvalue="Gradle.Lab2 [run]" />
-        <item itemvalue="JAR Application.Lab1-1.0.jar" />
-        <item itemvalue="Gradle.Lab2 [clean]" />
-        <item itemvalue="Gradle.Lab2 [jar]" />
-        <item itemvalue="Gradle.Lab2 [testClasses]" />
       </list>
     </recent_temporary>
   </component>
@@ -240,6 +265,10 @@
       <workItem from="1583752014698" duration="1997000" />
       <workItem from="1583784487167" duration="5684000" />
       <workItem from="1583827548073" duration="5670000" />
+      <workItem from="1583836534457" duration="76000" />
+      <workItem from="1583839828469" duration="767000" />
+      <workItem from="1584269106407" duration="165000" />
+      <workItem from="1584269481993" duration="15729000" />
     </task>
     <servers />
   </component>
@@ -259,10 +288,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1583828451633" />
-    <state x="574" y="96" key="#com.intellij.ide.util.MemberChooser" timestamp="1583832761124">
+    <state x="93" y="93" width="1350" height="638" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1584288544278">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="96" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1583832761124" />
+    <state x="93" y="93" width="1350" height="638" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1536.824@0.0.1536.824" timestamp="1584288544278" />
+    <state x="574" y="96" key="#com.intellij.ide.util.MemberChooser" timestamp="1584294342261">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="574" y="96" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1584294342261" />
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1583831346530">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -271,62 +304,62 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1583224052685" />
-    <state width="1493" height="169" key="GridCell.Tab.0.bottom" timestamp="1583836436504">
+    <state width="1493" height="204" key="GridCell.Tab.0.bottom" timestamp="1584294888446">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="169" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1583836436504" />
-    <state width="1493" height="169" key="GridCell.Tab.0.center" timestamp="1583836436504">
+    <state width="1493" height="204" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1584294888446" />
+    <state width="1493" height="204" key="GridCell.Tab.0.center" timestamp="1584294888446">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="169" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1583836436504" />
-    <state width="1493" height="169" key="GridCell.Tab.0.left" timestamp="1583836436504">
+    <state width="1493" height="204" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1584294888446" />
+    <state width="1493" height="204" key="GridCell.Tab.0.left" timestamp="1584294888446">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="169" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1583836436504" />
-    <state width="1493" height="169" key="GridCell.Tab.0.right" timestamp="1583836436504">
+    <state width="1493" height="204" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1584294888446" />
+    <state width="1493" height="204" key="GridCell.Tab.0.right" timestamp="1584294888446">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="169" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1583836436504" />
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1583762121863">
+    <state width="1493" height="204" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1584294888446" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1584288546049">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1583762121863" />
-    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1583762121863">
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1584288546049" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1584288546049">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1583762121863" />
-    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1583762121863">
+    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1584288546049" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1584288546049">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1583762121863" />
-    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1583762121863">
+    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1584288546049" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1584288546049">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1583762121863" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1584288546049" />
     <state width="189" height="457" key="HiddenNamespacesPopup" timestamp="1583223191102">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="189" height="457" key="HiddenNamespacesPopup/0.0.1536.824@0.0.1536.824" timestamp="1583223191102" />
-    <state x="277" y="0" key="SettingsEditor" timestamp="1583786671041">
+    <state x="277" y="0" key="SettingsEditor" timestamp="1583836548695">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="277" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1583786671041" />
+    <state x="277" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1583836548695" />
     <state x="642" y="302" width="322" height="234" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1583224637564">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="642" y="302" width="322" height="234" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1536.824@0.0.1536.824" timestamp="1583224637564" />
-    <state x="485" y="53" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1583784629788">
+    <state x="485" y="53" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1584271456592">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="485" y="53" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1536.824@0.0.1536.824" timestamp="1583784629788" />
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1583752022271">
+    <state x="485" y="53" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1536.824@0.0.1536.824" timestamp="1584271456592" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1584269814471">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1583752022271" />
-    <state x="540" y="115" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1582619129008">
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1584269814471" />
+    <state x="540" y="115" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1584294108196">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="540" y="115" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1536.824@0.0.1536.824" timestamp="1582619129008" />
+    <state x="540" y="115" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1536.824@0.0.1536.824" timestamp="1584294108196" />
     <state x="209" y="24" key="new project wizard" timestamp="1582636445048">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -335,9 +368,20 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1583225624633" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1583833147538">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1584270707504">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1583833147538" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1584270707504" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/repository/ProbaDbRepositoryTest.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

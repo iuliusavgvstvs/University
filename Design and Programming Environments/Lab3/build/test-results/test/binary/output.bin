@@ -1,0 +1,12 @@
+M19:54:51.359 [Test worker] INFO  repository.UserDbRepository - Login failed
+M19:54:51.368 [Test worker] INFO  repository.UserDbRepository - Login failed
+
+6 CopilID= 1, distanta= 50
+
+7 CopilID= 1, distanta= 100
+
+8 CopilID= 2, distanta= 1000
+
+9 CopilID= 2, distanta= 1500
+
+10 CopilID= 3, distanta= 50

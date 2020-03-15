@@ -11,60 +11,119 @@
     <collation id="4" parent="1" name="NOCASE"/>
     <collation id="5" parent="1" name="RTRIM"/>
     <table id="6" parent="2" name="Copil"/>
-    <table id="7" parent="2" name="sqlite_master">
+    <table id="7" parent="2" name="Proba"/>
+    <table id="8" parent="2" name="Users"/>
+    <table id="9" parent="2" name="sqlite_master">
       <System>1</System>
     </table>
-    <table id="8" parent="2" name="sqlite_sequence">
+    <table id="10" parent="2" name="sqlite_sequence">
       <System>1</System>
     </table>
-    <column id="9" parent="6" name="id">
+    <column id="11" parent="6" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="10" parent="6" name="nume">
+    <column id="12" parent="6" name="nume">
       <Position>2</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="11" parent="6" name="prenume">
+    <column id="13" parent="6" name="prenume">
       <Position>3</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="12" parent="6" name="varsta">
+    <column id="14" parent="6" name="varsta">
       <Position>4</Position>
       <DataType>int|0s</DataType>
     </column>
-    <key id="13" parent="6" name="Copil_pk">
+    <key id="15" parent="6" name="Copil_pk">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="14" parent="7" name="type">
+    <column id="16" parent="7" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="17" parent="7" name="idCopil">
+      <Position>2</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="18" parent="7" name="Distanta">
+      <Position>3</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="19" parent="7" name="Proba_id_uindex">
+      <ColNames>id</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="20" parent="7" name="Proba_pk">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>Proba_id_uindex</UnderlyingIndexName>
+    </key>
+    <column id="21" parent="8" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="22" parent="8" name="username">
+      <Position>2</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="23" parent="8" name="password">
+      <Position>3</Position>
+      <DataType>varchar(30)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="24" parent="8" name="Users_id_uindex">
+      <ColNames>id</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="25" parent="8" name="Users_username_uindex">
+      <ColNames>username</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="26" parent="8" name="Users_pk">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>Users_id_uindex</UnderlyingIndexName>
+    </key>
+    <column id="27" parent="9" name="type">
       <Position>1</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="15" parent="7" name="name">
+    <column id="28" parent="9" name="name">
       <Position>2</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="16" parent="7" name="tbl_name">
+    <column id="29" parent="9" name="tbl_name">
       <Position>3</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="17" parent="7" name="rootpage">
+    <column id="30" parent="9" name="rootpage">
       <Position>4</Position>
       <DataType>int|0s</DataType>
     </column>
-    <column id="18" parent="7" name="sql">
+    <column id="31" parent="9" name="sql">
       <Position>5</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="19" parent="8" name="name">
+    <column id="32" parent="10" name="name">
       <Position>1</Position>
     </column>
-    <column id="20" parent="8" name="seq">
+    <column id="33" parent="10" name="seq">
       <Position>2</Position>
     </column>
   </database-model>
