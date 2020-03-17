@@ -1,0 +1,216 @@
+	 <!DOCTYPE html>
+	 <html lang="en">
+	 <head>
+	 	<title>Programare Service auto</title>
+	 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	 </head>
+	 <body >
+	 	<h1>
+	 		Programare service auto
+	 	</h1>
+	 	<form>
+	 		<fieldset >
+	 		<table >
+	 			<tr>
+	 				<td>
+	 					<fieldset>
+	 					<table >
+	 						<tr>
+	 							<th colspan="2">1.Detalii Client:</th>
+	 						</tr>
+	 						<tr>
+	 							<td>Nume</td>
+	 							<td><input type="text" name="nume"></td>
+	 						</tr>
+	 						<tr>
+	 							<td>Prenume</td>
+	 							<td><input type="text" name="prenume" size="25"></td>
+	 						</tr>
+	 						<tr>
+	 							<td>Data Nasterii</td>
+	 							<td><input type="text" name="data" maxlength="10"></td>
+	 						</tr>
+	 						<tr>
+	 							<td>Sex</td>
+	 							<td><input type="radio" id="male" name="gender" value="male"><label for="male">M</label><input type="radio" id="female" name="gender" value="female"><label for="female">F </label></td>
+	 						</tr>
+	 						<tr>
+	 							<td>Adresa</td>
+	 							<td><input type="text" name="adresa"></td>
+	 						</tr>
+	 						<tr>
+	 							<td>Oras</td>
+	 							<td><input type="text" name="oras"></td>
+	 						</tr>
+	 						<tr>
+	 							<td>Judet</td>
+	 							<td>
+	 								<select name="judet">
+	 									<option value="0" selected>Alege Judet</option>
+	 									<option value="Alba">Alba</option>
+	 									<option value="Arad">Arad</option>
+	 									<option value="Arges">Arges</option>
+	 									<option value="Bacau">Bacau</option>
+	 									<option value="Bihor">Bihor</option>
+	 									<option value="Bistrita Nasaud">Bistrita Nasaud</option>
+	 									<option value="Botosani">Botosani</option>
+	 									<option value="Brasov">Brasov</option>
+	 									<option value="Braila">Braila</option>
+	 									<option value="Bucuresti">Bucuresti</option>
+	 									<option value="Buzau">Buzau</option>
+	 									<option value="Caras Severin">Caras Severin</option>
+	 									<option value="Calarasi">Calarasi</option>
+	 									<option value="Cluj">Cluj</option>
+	 									<option value="Constanta">Constanta</option>
+	 									<option value="Covasna">Covasna</option>
+	 									<option value="Dambovita">Dambovita</option>
+	 									<option value="Dolj">Dolj</option>
+	 									<option value="Galati">Galati</option>
+	 									<option value="Giurgiu">Giurgiu</option>
+	 									<option value="Gorj">Gorj</option>
+	 									<option value="Harghita">Harghita</option>
+	 									<option value="Hunedoara">Hunedoara</option>
+	 									<option value="Ialomita">Ialomita</option>
+	 									<option value="Iasi">Iasi</option>
+	 									<option value="Ilfov">Ilfov</option>
+	 									<option value="Maramures">Maramures</option>
+	 									<option value="Mehedinti">Mehedinti</option>
+	 									<option value="Mures">Mures</option>
+	 									<option value="Neamt">Neamt</option>
+	 									<option value="Olt">Olt</option>
+	 									<option value="Prahova">Prahova</option>
+	 									<option value="Satu Mare">Satu Mare</option>
+	 									<option value="Salaj">Salaj</option>
+	 									<option value="Sibiu">Sibiu</option>
+	 									<option value="Suceava">Suceava</option>
+	 									<option value="Teleorman">Teleorman</option>
+	 									<option value="Timis">Timis</option>
+	 									<option value="Tulcea">Tulcea</option>
+	 									<option value="Vaslui">Vaslui</option>
+	 									<option value="Valcea">Valcea</option>
+	 									<option value="Vrancea">Vrancea</option>
+	 								</select>
+	 							</td>
+	 						</tr>
+	 						<tr>
+	 							<td>Cod Postal</td>
+	 							<td><input type="text" name="codpostal" disabled readonly=""></td>
+	 						</tr>
+	 						<tr>
+	 							<td>Numar telefon</td>
+	 							<td><input type="text" name="numartelefon"></td>
+	 						</tr>
+	 						<tr>
+	 							<td>E-mail</td>
+	 							<td><input type="email" name="email"></td>
+	 						</tr>
+	 					</table>
+	 				</fieldset>
+	 				</td>
+	 				<td>
+	 					<fieldset>
+	 					<table>
+	 						<tr>
+	 							<th colspan="2">2.Detalii masina:</th>
+	 						</tr>
+	 						<tr>
+	 							<td>Marca</td>
+	 							<td><input type="text" name="marca"></td>
+	 						</tr>
+	 						<tr>
+	 							<td>Model</td>	
+	 							<td><input type="text" name="model"></td>
+	 						</tr>
+	 						<tr>
+	 							<td>An fabricatie</td>
+	 							<td><input type="number" name="anfabricatie"></td>
+	 						</tr>
+	 						<tr>
+	 							<td>Capacitate cilindrica</td>
+	 							<td><input type="number" name="capacitate"></td>
+	 						</tr>
+	 						<tr>
+	 							<td>VIN</td>
+	 							<td><input type="text" name="vin"></td>
+	 						</tr>
+	 						<tr>
+	 							<td colspan="2"> <a href="https://www.wikihow.com/Find-Your-VIN-(Vehicle-Identification-Number)" target="_blank"><p>Unde gasesc VIN-ul masinii?</p></a> </td>
+	 						</tr>
+	 						<tr>
+	 							<td colspan="2"><br>
+	 								<img src="https://miro.medium.com/max/790/1*oeoUGlWwTaC7TkdRrzR6rw.jpeg" alt="imagine vim" width="350" height="150">
+	 							</td>
+	 						</tr>
+	 					</table>
+	 				</fieldset>
+	 				</td>
+	 			</tr>
+	 			<tr>
+	 				<td colspan="2">
+	 					<fieldset>
+	 					<table>
+	 						<tr>
+	 							<th colspan="2">3.Detalii service:</th>
+	 						</tr>
+	 						<tr>
+	 							<td>Tip Serviciu</td>
+	 							<td><select name="tipserviciu" multiple>
+	 								<option value="inspectie">Inspectie tehnica</option>
+	 								<option value="Reparatii">Reparatii</option>
+	 							</select>
+	 						</td>
+	 					</tr>
+	 					<tr>
+	 						<td>Comentarii/Cerinte speciale</td>	
+	 						<td><textarea id="comentarii" rows="4" cols="50"></textarea></td>
+	 					</tr>
+	 					<tr>
+	 						<td colspan="2">
+	 							<fieldset>
+	 								<legend>GDPR&Marketing:</legend>
+	 								<div style="background-color:lightblue" >
+	 									<ol type="I"><li><strong>Consimtamant cu privire la prelucrarea datelor cu caracter personal<br><input type="checkbox" name="datepersonale">Accept prelucrarea <span style="color:red">datelor cu caracter personal</span>  mentionate mai sus</strong>
+
+	 										<ol type="a" start="1">
+	 											<li>
+	 												DATELE VOR FI PRELUCRATE IN SCOPUL IMBUNATATIRII SERVICIILOR OFERITE
+	 											</li>
+	 											<li>
+	 												DATELE VOR FI PRELUCRATE ÎN SCOPUL CENTRALIZĂRII CLIENȚILOR SERVICE-ULUI
+	 											</li>
+	 										</ol>
+	 									</li>
+	 									<li>
+	 										<strong>Consimtamant cu privire la comunicarea de marketing<br><input type="checkbox" name="datepersonale" checked>Doresc să primesc comunicări de marketing de la Service-un nostru pe e-mail, posta, telefon/servicii de mesagerie</strong>
+	 										<ol type="a">
+	 											<li>
+	 												NOUTĂȚI
+	 											</li>
+	 											<li>
+	 												INVITAȚII LA EVENIMENTE
+	 											</li>
+	 											<li>
+	 												INFORMAȚII AUTOMOBIL
+	 											</li>
+	 										</ol>
+	 									</li>
+	 								</ol>
+	 							</div>
+	 						</fieldset>
+	 					</td>
+	 				</tr>
+	 			</table>
+	 		</fieldset>
+	 		</td>
+	 	</tr>
+	 			<tr>
+	 				<td colspan="2">
+	 					<br><input type="submit" value="Trimite">
+	 					<p>Va multumim pentru completarea formularului</p>
+	 				</td>
+	 			</tr>
+	 </table>
+	</fieldset>
+	</form>
+</body>
+</html> 
