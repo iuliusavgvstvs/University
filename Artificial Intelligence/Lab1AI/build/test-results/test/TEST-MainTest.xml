@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="MainTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2020-03-03T10:41:40" hostname="HP-Envy" time="0.009">
+  <properties/>
+  <testcase name="p1" classname="MainTest" time="0.002"/>
+  <testcase name="p2" classname="MainTest" time="0.004"/>
+  <testcase name="p4" classname="MainTest" time="0.0"/>
+  <testcase name="p6" classname="MainTest" time="0.0"/>
+  <testcase name="p3v3" classname="MainTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
