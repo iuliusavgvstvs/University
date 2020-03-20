@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="repository.ProbaDbRepositoryTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2020-03-18T18:40:19" hostname="HP-Envy" time="0.006">
+  <properties/>
+  <testcase name="getByDistanta" classname="repository.ProbaDbRepositoryTest" time="0.0"/>
+  <testcase name="findOne" classname="repository.ProbaDbRepositoryTest" time="0.001"/>
+  <testcase name="findOneByProba" classname="repository.ProbaDbRepositoryTest" time="0.0"/>
+  <testcase name="save" classname="repository.ProbaDbRepositoryTest" time="0.0"/>
+  <testcase name="getByCopilID" classname="repository.ProbaDbRepositoryTest" time="0.004"/>
+  <system-out><![CDATA[11 CopilID= 1, distanta= 50
+12 CopilID= 1, distanta= 100
+13 CopilID= 2, distanta= 1000
+14 CopilID= 2, distanta= 1500
+15 CopilID= 3, distanta= 50
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
