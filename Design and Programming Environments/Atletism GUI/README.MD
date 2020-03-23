@@ -16,16 +16,16 @@ if the login succeeds, the login widnow will clsoe, and the main app window will
 
 Main app window, in the first tab:
 
-![](/images/mainapp_main.png)
+![](/Design%20and%20Programming%20Environments/Atletism%20GUI/images/mainapp_main.png)
 
 Main app window in the second tab: 
-![](/images/mainapp_advanced.png)
+![](/Design%20and%20Programming%20Environments/Atletism%20GUI/images/mainapp_advanced.png)
 
 Adding a new Registration: 
 
 for incorrect data: 
 
-![](/images/mainapp_invalid.png)
+![](/Design%20and%20Programming%20Environments/Atletism%20GUI/images/mainapp_invalid.png)
 
 for correct data: 
-![](/images/mainapp_valid.png)
+![](/Design%20and%20Programming%20Environments/Atletism%20GUI/images/mainapp_valid.png)
