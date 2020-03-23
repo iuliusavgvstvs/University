@@ -6,11 +6,11 @@ About aplication:
   Age group 6-8 can join 50m/100m, group 9-12 can join 100m/1000m and group 12-15 can join 1000m/1500m.
 The aplication consists of 2 windows: an login window and a main application window.
 The login window:
-![](/images/login.png)
+![](/master/Design and Programming Environments/Atletism GUI/images/login.png)
 
 if the login fails: 
 
-![](/images/login_failed.png)
+![](/University/tree/master/Design and Programming Environments/Atletism GUI/images/login_failed.png)
 
 if the login succeeds, the login widnow will clsoe, and the main app window will show:
 
