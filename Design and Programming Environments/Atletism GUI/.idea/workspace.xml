@@ -130,6 +130,26 @@
     </key>
   </component>
   <component name="RunManager" selected="Gradle.Lab2 [run]">
+    <configuration name="CopilDbRepositoryTest.findByAge" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;repository.CopilDbRepositoryTest.findByAge&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="CopilDbRepositoryTest.findOne" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -208,26 +228,6 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ProbaDbRepositoryTest.findOne" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;repository.ProbaDbRepositoryTest.findOne&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":cleanTest" />
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
     <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
       <module name="Lab2_GUI" />
       <option name="VM_PARAMETERS" />
@@ -279,9 +279,9 @@
       <list>
         <item itemvalue="Gradle.Lab2 [run]" />
         <item itemvalue="Gradle.Lab2 [test]" />
+        <item itemvalue="Gradle.CopilDbRepositoryTest.findByAge" />
         <item itemvalue="Gradle.CopilDbRepositoryTest.findOnebyName" />
         <item itemvalue="Gradle.CopilDbRepositoryTest.findOne" />
-        <item itemvalue="Gradle.ProbaDbRepositoryTest.findOne" />
       </list>
     </recent_temporary>
   </component>
@@ -318,6 +318,10 @@
       <workItem from="1584603709954" duration="523000" />
       <workItem from="1584690692920" duration="664000" />
       <workItem from="1584726998728" duration="10717000" />
+      <workItem from="1584813651878" duration="7171000" />
+      <workItem from="1584899569566" duration="1554000" />
+      <workItem from="1584954482076" duration="5765000" />
+      <workItem from="1584962128285" duration="21508000" />
     </task>
     <servers />
   </component>
@@ -345,10 +349,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="523" y="215" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1584738097185" />
-    <state x="574" y="96" key="#com.intellij.ide.util.MemberChooser" timestamp="1584733179950">
+    <state x="574" y="96" key="#com.intellij.ide.util.MemberChooser" timestamp="1584960475027">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="96" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1584733179950" />
+    <state x="574" y="96" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1584960475027" />
     <state x="0" y="337" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1584733128267">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -357,42 +361,46 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1583831346530" />
+    <state x="499" y="159" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1584976124552">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="159" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1536.824@0.0.1536.824" timestamp="1584976124552" />
     <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1584727128566">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1584727128566" />
-    <state width="1493" height="261" key="GridCell.Tab.0.bottom" timestamp="1584742352815">
+    <state width="1493" height="255" key="GridCell.Tab.0.bottom" timestamp="1585001143176">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1584742352815" />
-    <state width="1493" height="261" key="GridCell.Tab.0.center" timestamp="1584742352815">
+    <state width="1493" height="255" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585001143176" />
+    <state width="1493" height="255" key="GridCell.Tab.0.center" timestamp="1585001143176">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1584742352815" />
-    <state width="1493" height="261" key="GridCell.Tab.0.left" timestamp="1584742352815">
+    <state width="1493" height="255" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585001143176" />
+    <state width="1493" height="255" key="GridCell.Tab.0.left" timestamp="1585001143176">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1584742352815" />
-    <state width="1493" height="261" key="GridCell.Tab.0.right" timestamp="1584742352815">
+    <state width="1493" height="255" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585001143176" />
+    <state width="1493" height="255" key="GridCell.Tab.0.right" timestamp="1585001143176">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1584742352815" />
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1584742352816">
+    <state width="1493" height="255" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585001143176" />
+    <state width="1493" height="255" key="GridCell.Tab.1.bottom" timestamp="1585001143176">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1584742352816" />
-    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1584742352815">
+    <state width="1493" height="255" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585001143176" />
+    <state width="1493" height="255" key="GridCell.Tab.1.center" timestamp="1585001143176">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1584742352815" />
-    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1584742352815">
+    <state width="1493" height="255" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1585001143176" />
+    <state width="1493" height="255" key="GridCell.Tab.1.left" timestamp="1585001143176">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1584742352815" />
-    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1584742352815">
+    <state width="1493" height="255" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1585001143176" />
+    <state width="1493" height="255" key="GridCell.Tab.1.right" timestamp="1585001143176">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1584742352815" />
+    <state width="1493" height="255" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1585001143176" />
     <state width="189" height="457" key="HiddenNamespacesPopup" timestamp="1583223191102">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -409,14 +417,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="485" y="53" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1536.824@0.0.1536.824" timestamp="1584271456592" />
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1584727053982">
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1584954494142">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1584727053982" />
-    <state x="540" y="115" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1584294108196">
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1584954494142" />
+    <state x="540" y="115" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1584963299484">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="540" y="115" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1536.824@0.0.1536.824" timestamp="1584294108196" />
+    <state x="540" y="115" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1536.824@0.0.1536.824" timestamp="1584963299484" />
     <state x="209" y="24" key="new project wizard" timestamp="1582636445048">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -425,10 +433,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1583225624633" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1584555736837">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1584988774050">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1584555736837" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1584988774050" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -444,16 +452,32 @@
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ui/LoginUI.java</url>
-          <line>42</line>
-          <option name="timeStamp" value="6" />
+          <url>file://$PROJECT_DIR$/src/main/java/repository/CopilDbRepository.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ui/LoginUI.java</url>
-          <line>41</line>
+          <url>file://$PROJECT_DIR$/src/main/java/repository/CopilDbRepository.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ui/MainAppUI.java</url>
+          <line>166</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/repository/CopilDbRepository.java</url>
+          <line>51</line>
+          <properties class="repository.CopilDbRepository" method="findByAge">
+            <option name="EMULATED" value="true" />
+          </properties>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Lab1$Lab2__run_.ic" NAME="Lab2 [run] Coverage Results" MODIFIED="1584962733584" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

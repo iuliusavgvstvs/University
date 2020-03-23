@@ -1,8 +1,5 @@
 package main;
 
-import domain.Copil;
-
-import domain.Proba;
 import domain.validator.CopilValidator;
 import domain.validator.ProbaValidator;
 import domain.validator.UserValidator;
@@ -22,7 +19,6 @@ import service.UserService;
 import ui.LoginUI;
 
 import java.io.IOException;
-import java.sql.*;
 
 public class MainApp extends Application {
     private static final Logger logger = LogManager.getLogger();
@@ -56,6 +52,7 @@ public class MainApp extends Application {
         Scene scene = new Scene(root);
         primaryStage.setTitle("Atletism for kids");
         primaryStage.setScene(scene);
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 }

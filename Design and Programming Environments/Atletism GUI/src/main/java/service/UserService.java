@@ -25,7 +25,7 @@ public class UserService implements IService<User> {
         return reposiotry.save(entity);
     }
 
-    public boolean getLogin(User entity) throws ValidationException {
+    public boolean getLogin(User entity) {
         return reposiotry.getLogin(entity);
     }
 }

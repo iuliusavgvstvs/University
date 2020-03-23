@@ -5,6 +5,8 @@ import domain.exceptions.ValidationException;
 import domain.validator.CopilValidator;
 import repository.CopilDbRepository;
 
+import java.util.ArrayList;
+
 public class CopilService implements IService<Copil>{
     private CopilValidator validator;
     private CopilDbRepository repository;
@@ -28,5 +30,9 @@ public class CopilService implements IService<Copil>{
         Copil c = new Copil(1, fname,lname,age);
         validator.validate(c);
         return repository.findOnebyName(fname,lname,age);
+    }
+
+    public ArrayList<Copil> findByAge(int minAge, int maxAge){
+        return repository.findByAge(minAge, maxAge);
     }
 }

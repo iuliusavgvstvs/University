@@ -1,11 +1,0 @@
-
-11 CopilID= 1, distanta= 50
-
-12 CopilID= 1, distanta= 100
-
-13 CopilID= 2, distanta= 1000
-
-14 CopilID= 2, distanta= 1500
-
-15 CopilID= 3, distanta= 50
-M20:40:19.519 [Test worker] INFO  repository.UserDbRepository - Login failed

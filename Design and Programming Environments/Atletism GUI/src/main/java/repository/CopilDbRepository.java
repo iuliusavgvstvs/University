@@ -6,6 +6,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class CopilDbRepository implements ICopilRepository<Copil> {
 
@@ -45,6 +46,22 @@ public class CopilDbRepository implements ICopilRepository<Copil> {
             logger.error(ex);
         }
         return null;
+    }
+
+    @Override
+    public ArrayList<Copil> findByAge(int minAge, int maxAge) {
+        ArrayList<Copil> list = new ArrayList<>();
+        String sql = "SELECT * FROM Copil WHERE varsta between ? and ?";
+        try (PreparedStatement pstmt  = conn.prepareStatement(sql)){
+            pstmt.setInt(1,minAge);
+            pstmt.setInt(2,maxAge);
+            ResultSet rs  = pstmt.executeQuery();
+            while(rs.next())
+                list.add(new Copil(rs.getInt("id"), rs.getString("nume"), rs.getString("prenume"), rs.getInt("varsta")));
+        } catch (SQLException ex) {
+            logger.error(ex);
+        }
+        return list;
     }
 
     @Override

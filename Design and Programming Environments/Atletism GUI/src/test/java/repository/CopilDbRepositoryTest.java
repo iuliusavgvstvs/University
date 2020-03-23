@@ -51,5 +51,13 @@ public class CopilDbRepositoryTest {
     }
 
 
+    @Test
+    public void findByAge() {
+        assertEquals(repo.findByAge(9,9).size(),1);
+        assertEquals(repo.findByAge(8,9).size(),2);
+        assertEquals(repo.findByAge(10,11).size(),1);
+        assertEquals(repo.findByAge(8,11).size(),3);
+
+    }
 }
 

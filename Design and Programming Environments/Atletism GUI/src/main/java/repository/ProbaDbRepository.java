@@ -32,7 +32,7 @@ public class ProbaDbRepository implements IProbaRepository<Proba> {
             ResultSet rs  = pstmt.executeQuery();
             while(rs.next()) {
                 Proba p = new Proba(rs.getInt("id"), rs.getInt("idCopil"), rs.getInt("Distanta"));
-                System.out.println(p.toString());
+                //System.out.println(p.toString());
                 list.add(p);
             }
         } catch (SQLException ex) {
