@@ -10,7 +10,7 @@ The login window:
 
 if the login fails: 
 
-![](/University/tree/master/Design and Programming Environments/Atletism GUI/images/login_failed.png)
+![](/Design and Programming Environments/Atletism GUI/images/login_failed.png)
 
 if the login succeeds, the login widnow will clsoe, and the main app window will show:
 
