@@ -1,0 +1,54 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: inline;
+  border-left-style: solid;
+  border-width: 1px;
+}
+
+#wrapper {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+#header {
+  height: 100px;
+  background-color: red;
+  text-align: left;
+  flex-shrink: 0;
+}
+#navbar{
+	height: 25px;
+	background-color: yellow;
+	flex-shrink: 0;
+}
+
+#mainview {
+  font-size: 24px;
+  background-color: green;
+  flex-grow: 1;
+}
+#middle{
+	flex: 1;
+	display: flex;
+	flex-flow: column;
+}
+
+
+#footer {
+  height: 60px;
+  background-color: pink;
+  flex-shrink: 0;
+}

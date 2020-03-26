@@ -1,0 +1,30 @@
+
+p {
+  text-align: center;
+}
+img {
+  width: 150px;
+  height: 200px;
+}
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: : row;
+  border-style: solid;
+  border-width: 2px;
+  border-color: black;
+  width: 360px;
+  height: 600px;
+
+}
+
+.img {
+  flex:1;
+  background-color: cyan;
+  margin: 8px;
+}
+
+
+
+

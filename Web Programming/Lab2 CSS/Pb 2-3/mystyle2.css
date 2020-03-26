@@ -1,0 +1,55 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  border-bottom-style: solid;
+  border-width: 3px;
+  border-color: black;
+  margin: 25px 50px 50px 50px;
+}
+
+#wrapper {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+#header {
+  height: 100px;
+  background-color: red;
+  text-align: left;
+  flex-shrink: 0;
+}
+#navbar{
+  display: inline-flex;
+	background-color: yellow;
+  width: 15%;
+}
+
+#mainview {
+  font-size: 25px;
+  background-color: green;
+  flex:1;
+}
+
+#middle{
+  display: inline-flex;
+  flex-grow: 1;
+}
+
+
+#footer {
+  height: 60px;
+  background-color: pink;
+  flex-shrink: 0;
+}

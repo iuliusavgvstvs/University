@@ -1,0 +1,27 @@
+
+p {
+  text-align: center;
+  float: right;
+}
+img {
+  width: 150px;
+  height: 200px;
+}
+
+.wrapper {
+  display: inline-block;
+  flex-flow: : column;
+  border-style: solid;
+  border-width: 2px;
+  border-color: black;
+}
+
+.img {
+  background-color: yellow;
+  padding: 5px;
+  text-align:center;
+}
+
+
+
+
