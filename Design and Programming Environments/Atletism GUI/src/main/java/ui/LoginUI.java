@@ -1,7 +1,6 @@
 package ui;
 
 import domain.User;
-import domain.exceptions.ValidationException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -47,7 +46,7 @@ public class LoginUI {
     }
 
     @FXML
-    private void Login() throws ValidationException {
+    private void Login() {
         User user = new User(1,userField.getText(),passField.getText());
         if(! userServ.getLogin(user)) {
             infoLogin.setTextFill(Paint.valueOf("#ff0000"));

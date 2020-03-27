@@ -31,12 +31,4 @@ public class ProbaService implements IService<Proba> {
         return repository.getByCopilID(id);
     }
 
-    public ArrayList<Proba> getByDistanta(int distanta){
-        return  repository.getByDistanta(distanta);
-    }
-
-    public Proba findOneByProba( int idCopil, int distanta) throws ValidationException {
-        valdiator.validate(new Proba(1,idCopil,distanta));
-        return repository.findOneByProba(idCopil,distanta);
-    }
 }

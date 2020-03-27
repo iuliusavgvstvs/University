@@ -17,10 +17,7 @@ import service.CopilService;
 import service.ProbaService;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 public class MainAppUI {
 
@@ -136,25 +133,24 @@ public class MainAppUI {
 
     public void initModel(){
         ArrayList<TableEntity> list = getData();
-        List<TableEntity> tableList = StreamSupport.stream(list.spliterator(), false).collect(Collectors.toList());
+        List<TableEntity> tableList = new ArrayList<>(list);
         data.setAll(tableList);
     }
     public void initModelb(){
         ArrayList<TableEntity> list = getDatab();
-        List<TableEntity> tableList = StreamSupport.stream(list.spliterator(), false).collect(Collectors.toList());
+        List<TableEntity> tableList = new ArrayList<>(list);
         datab.setAll(tableList);
         refreshEventsb();
     }
 
     public void populateTable(){
-        idColumn.setCellValueFactory((new PropertyValueFactory<>("id")));
-        fnameColumn.setCellValueFactory(new PropertyValueFactory<>("copilFname"));
-        lnameColumn.setCellValueFactory(new PropertyValueFactory<>("copilLname"));
-        ageColumn.setCellValueFactory(new PropertyValueFactory<>("copilAge"));
-        eventColumn.setCellValueFactory(new PropertyValueFactory<>("distances"));
-        tabel.setItems(data);
+        populate(idColumn, fnameColumn, lnameColumn, ageColumn, eventColumn, tabel, data);
     }
     public void populateTableb(){
+        populate(idColumnb, fnameColumnb, lnameColumnb, ageColumnb, eventColumnb, tabel2, datab);
+    }
+
+    private void populate(TableColumn<TableEntity, Integer> idColumnb, TableColumn<TableEntity, String> fnameColumnb, TableColumn<TableEntity, String> lnameColumnb, TableColumn<TableEntity, Integer> ageColumnb, TableColumn<TableEntity, String> eventColumnb, TableView<TableEntity> tabel2, ObservableList<TableEntity> datab) {
         idColumnb.setCellValueFactory((new PropertyValueFactory<>("id")));
         fnameColumnb.setCellValueFactory(new PropertyValueFactory<>("copilFname"));
         lnameColumnb.setCellValueFactory(new PropertyValueFactory<>("copilLname"));
@@ -234,6 +230,10 @@ public class MainAppUI {
     }
     public void refreshEvents(){
         int age = ageSpinner.getValue();
+        refresh(age, m50, m100, m1000, m1500);
+    }
+
+    private void refresh(int age, CheckBox m50, CheckBox m100, CheckBox m1000, CheckBox m1500) {
         if(age<9){
             m50.setDisable(false);
             m100.setDisable(false);
@@ -260,33 +260,10 @@ public class MainAppUI {
             m1500.setDisable(false);
         }
     }
+
     public void refreshEventsb(){
         int age = Integer.parseInt(ageCombo.getValue());
-        if(age<9){
-            m50b.setDisable(false);
-            m100b.setDisable(false);
-            m1000b.setDisable(true);
-            m1000b.setSelected(false);
-            m1500b.setSelected(false);
-            m1500b.setDisable(true);
-        }
-        else if(age<12){
-            m50b.setDisable(true);
-            m50b.setSelected(false);
-            m100b.setDisable(false);
-            m1000b.setDisable(false);
-            m1500b.setDisable(true);
-            m1500b.setSelected(false);
-        }
-        else
-        {
-            m50b.setDisable(true);
-            m50b.setSelected(false);
-            m100b.setDisable(true);
-            m100b.setSelected(false);
-            m1000b.setDisable(false);
-            m1500b.setDisable(false);
-        }
+        refresh(age, m50b, m100b, m1000b, m1500b);
     }
 
     private void clearFields(){

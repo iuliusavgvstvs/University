@@ -32,14 +32,12 @@ public class ProbaDbRepository implements IProbaRepository<Proba> {
             ResultSet rs  = pstmt.executeQuery();
             while(rs.next()) {
                 Proba p = new Proba(rs.getInt("id"), rs.getInt("idCopil"), rs.getInt("Distanta"));
-                //System.out.println(p.toString());
                 list.add(p);
             }
         } catch (SQLException ex) {
             logger.error(ex);
         }
         if(list.isEmpty()) {
-            logger.info("Nu s-a gasit nimic!");
             return null;
         }
         else
@@ -61,7 +59,6 @@ public class ProbaDbRepository implements IProbaRepository<Proba> {
             logger.error(ex);
         }
         if(list.isEmpty()) {
-            logger.info("Nu s-a gasit nimic!");
             return null;
         }
         else
