@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="mainModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="Data Source=&quot;C:\Users\Iuliu\OneDrive\Desktop\University\Design and Programming Environments\Atletism\atletismdb.db&quot;" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Copil">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="integer" Nullable="false" />
+    <Property Name="Nume" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Prenume" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Varsta" Type="integer" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Proba">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="integer" Nullable="false" />
+    <Property Name="CopilID" Type="integer" Nullable="false" />
+    <Property Name="Distanta" Type="integer" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="integer" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="mainModelStoreContainer">
+    <EntitySet Name="Copil" EntityType="Self.Copil" store:Type="Tables" />
+    <EntitySet Name="Proba" EntityType="Self.Proba" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
