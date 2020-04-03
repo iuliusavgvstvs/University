@@ -9,7 +9,7 @@ namespace Atletism_GUI.NET.repository
 {
     public interface IRepository<T> where T:IEntity
     {
-        void save(T entity);
+        T save(T entity);
 
         T findOne(int id);
     }

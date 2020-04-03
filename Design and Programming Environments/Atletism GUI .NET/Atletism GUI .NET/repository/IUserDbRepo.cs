@@ -7,8 +7,8 @@ using Atletism_GUI.NET.model;
 namespace Atletism_GUI.NET.repository
 
 {
-    public interface IUserDbRepo:IRepository<EUser>
+    public interface IUserDbRepo:IRepository<User>
     {
-        EUser findBy(string username, string password);
+        User findBy(string username, string password);
     }
 }

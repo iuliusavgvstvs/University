@@ -1,0 +1,8 @@
+INFO  2020-04-03 05:02:32,064   209ms Program                Main               - Program Started
+INFO  2020-04-03 05:02:40,589  8734ms Program                Main               - Program ended.
+INFO  2020-04-03 05:03:11,575   334ms Program                Main               - Program Started
+ERROR 2020-04-03 05:11:12,984 481743ms Program                save               - Atletism_GUI.NET.model.exceptions.ValidationException: Invalid last name.
+   at Atletism_GUI.NET.model.validator.ChildValidator.validate(Child c) in C:\Users\Iuliu\OneDrive\Desktop\University\Design and Programming Environments\Atletism GUI .NET\Atletism GUI .NET\model\validator\ChildValidator.cs:line 24
+   at Atletism_GUI.NET.service.ChildService.save(Child entity) in C:\Users\Iuliu\OneDrive\Desktop\University\Design and Programming Environments\Atletism GUI .NET\Atletism GUI .NET\service\ChildService.cs:line 29
+   at Atletism_GUI.NET.Main.save() in C:\Users\Iuliu\OneDrive\Desktop\University\Design and Programming Environments\Atletism GUI .NET\Atletism GUI .NET\Main.cs:line 183
+INFO  2020-04-03 05:13:33,222 621981ms Program                Main               - Program ended.

@@ -33,9 +33,13 @@ C:\Users\Iuliu\OneDrive\Desktop\University\Design and Programming Environments\A
 C:\Users\Iuliu\OneDrive\Desktop\University\Design and Programming Environments\Atletism GUI .NET\Atletism GUI .NET\bin\Debug\System.Data.SQLite.xml
 C:\Users\Iuliu\OneDrive\Desktop\University\Design and Programming Environments\Atletism GUI .NET\Atletism GUI .NET\bin\Debug\System.Data.SQLite.dll.config
 C:\Users\Iuliu\OneDrive\Desktop\University\Design and Programming Environments\Atletism GUI .NET\Atletism GUI .NET\obj\Debug\Atletism GUI .NET.csprojAssemblyReference.cache
-C:\Users\Iuliu\OneDrive\Desktop\University\Design and Programming Environments\Atletism GUI .NET\Atletism GUI .NET\obj\Debug\Atletism_GUI.NET.Form1.resources
 C:\Users\Iuliu\OneDrive\Desktop\University\Design and Programming Environments\Atletism GUI .NET\Atletism GUI .NET\obj\Debug\Atletism_GUI.NET.Properties.Resources.resources
 C:\Users\Iuliu\OneDrive\Desktop\University\Design and Programming Environments\Atletism GUI .NET\Atletism GUI .NET\obj\Debug\Atletism GUI .NET.csproj.GenerateResource.cache
 C:\Users\Iuliu\OneDrive\Desktop\University\Design and Programming Environments\Atletism GUI .NET\Atletism GUI .NET\obj\Debug\Atletism GUI .NET.csproj.CopyComplete
 C:\Users\Iuliu\OneDrive\Desktop\University\Design and Programming Environments\Atletism GUI .NET\Atletism GUI .NET\obj\Debug\Atletism_GUI.NET.exe
 C:\Users\Iuliu\OneDrive\Desktop\University\Design and Programming Environments\Atletism GUI .NET\Atletism GUI .NET\obj\Debug\Atletism_GUI.NET.pdb
+C:\Users\Iuliu\OneDrive\Desktop\University\Design and Programming Environments\Atletism GUI .NET\Atletism GUI .NET\bin\Debug\x86\sqlite3.dll
+C:\Users\Iuliu\OneDrive\Desktop\University\Design and Programming Environments\Atletism GUI .NET\Atletism GUI .NET\bin\Debug\x64\sqlite3.dll
+C:\Users\Iuliu\OneDrive\Desktop\University\Design and Programming Environments\Atletism GUI .NET\Atletism GUI .NET\obj\Debug\Atletism GUI .NET.csproj.CoreCompileInputs.cache
+C:\Users\Iuliu\OneDrive\Desktop\University\Design and Programming Environments\Atletism GUI .NET\Atletism GUI .NET\obj\Debug\Atletism_GUI.NET.Login.resources
+C:\Users\Iuliu\OneDrive\Desktop\University\Design and Programming Environments\Atletism GUI .NET\Atletism GUI .NET\obj\Debug\Atletism_GUI.NET.Main.resources

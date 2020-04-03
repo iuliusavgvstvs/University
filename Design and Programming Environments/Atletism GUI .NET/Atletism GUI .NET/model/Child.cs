@@ -17,6 +17,7 @@ namespace Atletism_GUI.NET.model
             this.firstName = fName;
             this.lastName = lName;
             this.age = nAge;
+           
         }
 
         public int Id { get; set; }

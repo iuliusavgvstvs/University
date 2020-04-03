@@ -18,6 +18,7 @@ namespace Lab1
         SqlDataAdapter da2 = new SqlDataAdapter();
         DataSet ds = new DataSet();
         DataSet ds2 = new DataSet();
+        // Doar un dataSet
         public Form1()
         {
             InitializeComponent();
@@ -48,7 +49,6 @@ namespace Lab1
                 int selectedrowindex = dataGridView1.SelectedCells[0].RowIndex;
                 DataGridViewRow selectedRow = dataGridView1.Rows[selectedrowindex];
                 string a = Convert.ToString(selectedRow.Cells["id"].Value);
-                Console.WriteLine(a);
 
                 using (SqlConnection conn = new SqlConnection { ConnectionString = sqlConnString })
                 {

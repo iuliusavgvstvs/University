@@ -8,21 +8,18 @@ namespace Atletism_GUI.NET.model
 {
     public class Event:IEntity
     {
-        private int id;
         private int copilID;
         private int distanta;
 
-        public Event(int Id, int CopilId, int Distanta)
+        public Event(int CopilId, int Distanta)
         {
-            this.id = Id;
             this.copilID = CopilId;
             this.distanta = Distanta;
         }
 
         public int Id
         {
-            get { return id; }
-            set { id = value; }
+            get; set;
         }
 
         public int CopilID

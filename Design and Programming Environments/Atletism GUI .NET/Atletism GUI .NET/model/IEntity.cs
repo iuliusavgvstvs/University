@@ -1,7 +1,7 @@
 ﻿namespace Atletism_GUI.NET.model
 {
-    public interface IEntity
+    public class IEntity
     {
-        int Id { get; set; }
+         int Id { get; set; }
     }
 }
