@@ -1,5 +1,5 @@
 About application:
-    here -> https://github.com/iuliusavgvstvs/University/edit/master/Design%20and%20Programming%20Environments/Atletism%20GUI/README.MD
+    here -> https://github.com/iuliusavgvstvs/University/blob/master/Design%20and%20Programming%20Environments/Atletism%20GUI/README.MD
 This program was made in C# Windows Form App, IDE: Visual Studio 2019
 -Repository in SQLite DB;
 -Log4net logger;
