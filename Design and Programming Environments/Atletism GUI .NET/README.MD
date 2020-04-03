@@ -7,7 +7,7 @@ This program was made in C# Windows Form App, IDE: Visual Studio 2019
 
 Login window:
 
-![](/Design%20and%20Programming%20Environments/Atletism%20GUI%20%2E.NET/images/login.png)
+![](/Design%20and%20Programming%20Environments/Atletism%20GUI%20.NET/images/login.png)
 
 
 If login fails:
