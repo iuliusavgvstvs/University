@@ -6,3 +6,15 @@ ERROR 2020-04-03 05:11:12,984 481743ms Program                save              
    at Atletism_GUI.NET.service.ChildService.save(Child entity) in C:\Users\Iuliu\OneDrive\Desktop\University\Design and Programming Environments\Atletism GUI .NET\Atletism GUI .NET\service\ChildService.cs:line 29
    at Atletism_GUI.NET.Main.save() in C:\Users\Iuliu\OneDrive\Desktop\University\Design and Programming Environments\Atletism GUI .NET\Atletism GUI .NET\Main.cs:line 183
 INFO  2020-04-03 05:13:33,222 621981ms Program                Main               - Program ended.
+INFO  2020-04-03 08:12:52,131   419ms Program                Main               - Program Started
+INFO  2020-04-03 08:17:46,808   159ms Program                Main               - Program Started
+INFO  2020-04-03 08:18:04,594 17945ms Program                Main               - Program ended.
+INFO  2020-04-03 08:49:00,092   575ms Program                Main               - Program Started
+INFO  2020-04-03 08:51:24,721   147ms Program                Main               - Program Started
+INFO  2020-04-03 08:53:14,879 110305ms Program                Main               - Program ended.
+INFO  2020-04-07 17:22:35,128   119ms Program                Main               - Program Started
+INFO  2020-04-07 17:23:40,527   246ms Program                Main               - Program Started
+INFO  2020-04-07 17:26:03,312   255ms Program                Main               - Program Started
+INFO  2020-04-07 17:26:37,398   141ms Program                Main               - Program Started
+INFO  2020-04-07 17:28:17,579   260ms Program                Main               - Program Started
+INFO  2020-04-07 17:29:08,973   162ms Program                Main               - Program Started

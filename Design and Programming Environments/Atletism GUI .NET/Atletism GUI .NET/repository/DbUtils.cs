@@ -2,6 +2,7 @@
 using System;
 using System.Reflection;
 using Mono.Data.Sqlite;
+using System.Configuration;
 
 namespace Atletism_GUI.NET.repository
 {
@@ -62,11 +63,9 @@ namespace Atletism_GUI.NET.repository
         public override IDbConnection createConnection()
         {
             Console.WriteLine("creating ... sqlite connection");
-            //String connectionString = "URI=file:ChatMPP2017.db,Version=3";
-            String connectionString = "Data Source=C:\\Users\\Iuliu\\OneDrive\\Desktop\\University\\Design and Programming Environments\\Atletism GUI .NET\\atletismdb.db;";
-            return new SqliteConnection(connectionString);
 
-            //connection string='Data Source=C:\Users\Iuliu\OneDrive\Desktop\University\Design and Programming Environments\Atletism GUI .NET\atletismdb.db"
+            String connectionString = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+            return new SqliteConnection(connectionString);
         }
     }
 }
