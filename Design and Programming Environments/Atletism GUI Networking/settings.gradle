@@ -1,2 +1,8 @@
 rootProject.name = 'Atletism GUI Networking'
+include 'AtletismClient'
+include 'AtletismModel'
+include 'AtletismNetworking'
+include 'AtletismPersistence'
+include 'AtletismServer'
+include 'AtletismServices'
 
