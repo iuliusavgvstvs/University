@@ -18,8 +18,11 @@ namespace Lab1
         //string sqlConnString = "Data Source = HP-ENVY; Initial Catalog=Evidenta_Medicamente;Integrated Security=True";
         string sqlConnString = ConfigurationManager.ConnectionStrings["sqldb"].ConnectionString;
         SqlDataAdapter da = new SqlDataAdapter();
-        SqlDataAdapter da2 = new SqlDataAdapter();
         DataSet ds = new DataSet();
+        private string parentTable = ConfigurationManager.AppSettings["parentTable"];
+        private string childTable = ConfigurationManager.AppSettings["childTable"];
+        private string category = ConfigurationManager.AppSettings["category1"];
+        private string categoryb = ConfigurationManager.AppSettings["category4"];
         // Doar un dataSet
         public Form1()
         {
@@ -31,14 +34,11 @@ namespace Lab1
             using (SqlConnection conn = new SqlConnection { ConnectionString = sqlConnString })
             {
                 conn.Open();
-                da.SelectCommand = new SqlCommand("SELECT * FROM Producator", conn);
-                da.Fill(ds, "Producator");
-                dataGridView1.DataSource = ds.Tables["Producator"];
-                da2.SelectCommand = new SqlCommand("SELECT * FROM ContactProducator where ContactProducator.idproducator = 1", conn);
-                da2.Fill(ds, "ContactProducator");
-                dataGridView2.DataSource = ds.Tables["ContactProducator"];
-                dataGridView2.Columns[0].ReadOnly = true;
-                dataGridView2.Columns[3].ReadOnly = true;
+
+                SqlCommand cmd = new SqlCommand("SELECT * FROM "+ parentTable, conn);
+                da.SelectCommand = cmd;
+                da.Fill(ds, parentTable);
+                dataGridView1.DataSource = ds.Tables[parentTable];
             }
         }
 
@@ -50,19 +50,17 @@ namespace Lab1
             {
                 int selectedrowindex = dataGridView1.SelectedCells[0].RowIndex;
                 DataGridViewRow selectedRow = dataGridView1.Rows[selectedrowindex];
-                string a = Convert.ToString(selectedRow.Cells["id"].Value);
+                string a = Convert.ToString(selectedRow.Cells[category].Value);
+
 
                 using (SqlConnection conn = new SqlConnection { ConnectionString = sqlConnString })
                 {
-                    SqlParameter param = new SqlParameter();
-                    param.ParameterName = "@id";
-                    param.Value = a;
-                    SqlCommand cmd = new SqlCommand("SELECT * FROM ContactProducator where ContactProducator.idproducator = @id;", conn);
-                    cmd.Parameters.Add(param);
-                    da2.SelectCommand = cmd;
-                    DataSet ds2 = new DataSet();
-                    da2.Fill(ds2, "ContactProducator");
-                    dataGridView2.DataSource = ds2.Tables["ContactProducator"];
+                    if (dataGridView2.Rows.Count > 0)
+                        ds.Tables[childTable].Clear();
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM " + childTable + " where " + categoryb + " = " + a, conn);
+                    da.SelectCommand = cmd;
+                    da.Fill(ds, childTable);
+                    dataGridView2.DataSource = ds.Tables[childTable];
 
                 }
             }
@@ -84,19 +82,19 @@ namespace Lab1
             {
                 int selectedrowindex = dataGridView2.SelectedCells[0].RowIndex;
                 DataGridViewRow selectedRow = dataGridView2.Rows[selectedrowindex];
-                string a = Convert.ToString(selectedRow.Cells["id"].Value);
+                string a = Convert.ToString(selectedRow.Cells[category].Value);
 
                 using (SqlConnection conn = new SqlConnection { ConnectionString = sqlConnString })
                 {
+                    
                     SqlParameter param = new SqlParameter();
-                    param.ParameterName = "@id";
-                    param.Value = a;
-                    SqlCommand cmd = new SqlCommand("DELETE FROM CONTACTPRODUCATOR WHERE id = @id;", conn);
-                    cmd.Parameters.Add(param);
-                    da2.SelectCommand = cmd;
-                    da2.Fill(ds, "ContactProducator");
-                    dataGridView2.DataSource = ds.Tables["ContactProducator"];
+                    SqlCommand cmd = new SqlCommand($"DELETE FROM {childTable} WHERE id = {a} ", conn);
+                    da.SelectCommand = cmd;
+                    da.Fill(ds, childTable);
+                    dataGridView2.DataSource = ds.Tables[childTable];
                     refreshgrid2();
+                    
+
                 }
             }
         }
@@ -107,35 +105,13 @@ namespace Lab1
             {
                 using (SqlConnection conn = new SqlConnection { ConnectionString = sqlConnString })
                 {
-                    conn.Open();
-                    int selectedrowindex = dataGridView1.SelectedCells[0].RowIndex;
-                    DataGridViewRow selectedRow = dataGridView1.Rows[selectedrowindex];
-                    string a = Convert.ToString(selectedRow.Cells["id"].Value);
-                    using (SqlCommand cmd = new SqlCommand("DELETE FROM CONTACTPRODUCATOR WHERE idproducator = @id;", conn))
-                    {
-                        cmd.Parameters.AddWithValue("@id", a);
-                        cmd.ExecuteNonQuery();
-                    }
-                        foreach (DataGridViewRow row in dataGridView2.Rows)
-                    {
+                    da.SelectCommand.Connection = conn;
+                    //da.Fill(ds, childTable);
+                    SqlCommandBuilder builder = new SqlCommandBuilder(da);
+                    da.Update(ds, childTable);
 
-                        if (!row.IsNewRow)
-                        {
-                            using (SqlCommand cmd = new SqlCommand("INSERT INTO ContactProducator (adresa, nr_telefon, idproducator) VALUES(@c1,@c2,@c3)", conn))
-                            {
-
-                                cmd.Parameters.AddWithValue("@C1", row.Cells[1].Value);
-                                cmd.Parameters.AddWithValue("@C2", row.Cells[2].Value);
-                               
-                                cmd.Parameters.AddWithValue("@C3", a);
-                                 cmd.ExecuteNonQuery();
-
-                            }
-                        }
-                    }
-                    refreshgrid2();
-                    MessageBox.Show("Table updated", "Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+
             }
             catch(Exception ex)
             {

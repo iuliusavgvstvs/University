@@ -5,7 +5,7 @@ import repository.jbdc.UserDbRepository;
 import server.ServiceImpl;
 import services.IService;
 import utils.AbstractServer;
-import utils.ChatRpcConcurrentServer;
+import utils.AltetismRpcConcurrentServer;
 import utils.ServerException;
 
 import java.io.IOException;
@@ -17,7 +17,7 @@ public class StartRpcServer {
         // UserRepository userRepo=new UserRepositoryMock();
         Properties serverProps=new Properties();
         try {
-            serverProps.load(StartRpcServer.class.getResourceAsStream("/chatserver.properties"));
+            serverProps.load(StartRpcServer.class.getResourceAsStream("/atletismServer.properties"));
             System.out.println("Server properties set. ");
             serverProps.list(System.out);
         } catch (IOException e) {
@@ -37,7 +37,7 @@ public class StartRpcServer {
             System.err.println("Using default port "+defaultPort);
         }
         System.out.println("Starting server on port: "+chatServerPort);
-        AbstractServer server = new ChatRpcConcurrentServer(chatServerPort, chatServerImpl);
+        AbstractServer server = new AltetismRpcConcurrentServer(chatServerPort, chatServerImpl);
         try {
             server.start();
         } catch (ServerException e) {

@@ -1,12 +1,13 @@
 package model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Copil extends Entity {
+public class Copil extends Entity implements Comparable<Copil>, Serializable {
 
     private String firstName;
     private String lastName;
-    private int age;
+    private int age, id;
 
     public Copil(int id, String firstName, String lastName, int age) {
         super(id);
@@ -46,5 +47,10 @@ public class Copil extends Entity {
                 " firstName= '" + firstName + '\'' +
                 ", lastName= '" + lastName + '\'' +
                 ", age= " + age;
+    }
+
+    @Override
+    public int compareTo(Copil o) {
+        return  1;
     }
 }

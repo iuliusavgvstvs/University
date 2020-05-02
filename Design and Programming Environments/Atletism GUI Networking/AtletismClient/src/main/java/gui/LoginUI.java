@@ -1,7 +1,5 @@
 package gui;
 
-import model.Copil;
-import model.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -12,15 +10,19 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Paint;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import model.TableEntity;
+import model.User;
+import model.exceptions.ValidationException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import services.ChatException;
+import services.IObserver;
 import services.IService;
-
 
 import java.io.IOException;
 
 
-public class LoginUI {
+public class LoginUI implements IObserver {
     private static final Logger logger = LogManager.getLogger();
     @FXML
     TextField userField;
@@ -29,31 +31,32 @@ public class LoginUI {
     @FXML
     Label infoLogin;
     private IService Service;
-    private ProbaService probaServ;
-    private UserService userServ;
     private Stage stage;
+    User user;
 
-    public void setServices(CopilService cServ, ProbaService pServ, UserService uServ) {
-        this.copilServ = cServ;
-        this.probaServ = pServ;
-        this.userServ = uServ;
+    public void setServices(IService serv) {
+        this.Service = serv;
     }
 
     public void setStage(Stage s) {
         this.stage = s;
     }
-
+    public MainAppUI mainappui = new MainAppUI();
     @FXML
-    private void Login() {
-        User user = new User(1, userField.getText(), passField.getText());
-        if (!userServ.getLogin(user)) {
-            infoLogin.setTextFill(Paint.valueOf("#ff0000"));
-            infoLogin.setText("Login failed.");
-        } else {
+    private void Login() throws ChatException, ValidationException {
+        this.user = new User(1, userField.getText(), passField.getText());
+        try {
+            Service.login(user, this);
             infoLogin.setTextFill(Paint.valueOf("#00ff00"));
             infoLogin.setText("Login succesful");
             this.stage.close();
             showMainApp();
+
+        }
+        catch(ChatException | ValidationException e){
+
+            infoLogin.setTextFill(Paint.valueOf("#ff0000"));
+            infoLogin.setText("Login failed.");
         }
     }
 
@@ -68,11 +71,16 @@ public class LoginUI {
             mainAppStage.initModality(Modality.WINDOW_MODAL);
             Scene scene = new Scene(root);
             mainAppStage.setScene(scene);
-            MainAppUI mainappui = loader.getController();
-            mainappui.setServices(copilServ, probaServ, mainAppStage);
+            this.mainappui = loader.getController();
+            this.mainappui.setServices(Service, mainAppStage, user);
             mainAppStage.show();
-        } catch (IOException e) {
+        } catch (IOException | ChatException e) {
             logger.error(e);
         }
+    }
+
+    @Override
+    public void enitityAdded(TableEntity entity) throws ValidationException, ChatException {
+        this.mainappui.enitityAdded(entity);
     }
 }

@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Proba extends Entity {
+public class Proba extends Entity implements Comparable<Proba>, Serializable {
 
     private int CopilID;
     private int distanta;
@@ -41,5 +42,14 @@ public class Proba extends Entity {
         return this.getId() +
                 " CopilID= " + CopilID +
                 ", distanta= " + distanta;
+    }
+
+    @Override
+    public int compareTo(Proba o) {
+        return 1;
+    }
+
+    public void setCopilID(int copilID) {
+        CopilID = copilID;
     }
 }

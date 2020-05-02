@@ -2,5 +2,5 @@ package rpcprotocol;
 
 
 public enum RequestType {
-    LOGIN, LOGOUT, GET_LOGGED_FRIENDS, SEND_MESSAGE;
+    LOGIN, LOGOUT, ADD_EVENT, FIND_BY_AGE,FIND_BY_COPIL_ID;
 }

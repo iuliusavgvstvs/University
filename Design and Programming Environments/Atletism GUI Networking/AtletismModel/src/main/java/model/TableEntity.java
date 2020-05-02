@@ -49,4 +49,8 @@ public class TableEntity {
         else
             return p1.getDistanta() + "m, " + p2.getDistanta() + "m";
     }
+
+    public Copil getCopil() {
+        return copil;
+    }
 }

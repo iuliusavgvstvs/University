@@ -1,19 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="atletism" uuid="33610c7d-d3cd-4afb-bab8-a92bc60e5e5b">
+    <data-source source="LOCAL" name="atletism.db [3]" uuid="3d76fa85-933b-4746-8899-420d48f43305">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Users\Iuliu\OneDrive\Desktop\University\Design and Programming Environments\Atletism GUI Networking\src\main\resources\atletism.db</jdbc-url>
-      <libraries>
-        <library>
-          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.25.1/license.txt</url>
-        </library>
-        <library>
-          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.25.1/sqlite-jdbc-3.25.1.jar</url>
-        </library>
-      </libraries>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/atletism.db</jdbc-url>
     </data-source>
   </component>
 </project>

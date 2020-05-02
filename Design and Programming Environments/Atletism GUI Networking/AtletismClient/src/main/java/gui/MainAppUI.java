@@ -1,9 +1,5 @@
 package gui;
 
-import model.Copil;
-import model.Proba;
-import model.TableEntity;
-import model.exceptions.ValidationException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -11,15 +7,21 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
+import model.Copil;
+import model.Proba;
+import model.TableEntity;
+import model.User;
+import model.exceptions.ValidationException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import service.CopilService;
-import service.ProbaService;
+import services.ChatException;
+import services.IObserver;
+import services.IService;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainAppUI {
+public class MainAppUI implements IObserver {
 
     private static final Logger logger = LogManager.getLogger();
     ObservableList<TableEntity> data = FXCollections.observableArrayList();
@@ -78,15 +80,15 @@ public class MainAppUI {
     Label infoLabel;
     @FXML
     Button addBtn;
-    private CopilService copilServ;
-    private ProbaService probaServ;
+    private IService server;
     private Stage stage;
+    private User user;
     private int minAge, maxAge;
 
-    public void setServices(CopilService cServ, ProbaService pServ, Stage stg) {
-        this.copilServ = cServ;
-        this.probaServ = pServ;
+    public void setServices(IService serv, Stage stg, User u) throws ChatException {
+        this.server = serv;
         this.stage = stg;
+        this.user = u;
         initModel();
         initModelb();
     }
@@ -129,13 +131,13 @@ public class MainAppUI {
         ageSpinner.valueProperty().addListener((v, oldValue, newValue) -> refreshEvents());
     }
 
-    public void initModel() {
+    public void initModel() throws ChatException {
         ArrayList<TableEntity> list = getData();
         List<TableEntity> tableList = new ArrayList<>(list);
         data.setAll(tableList);
     }
 
-    public void initModelb() {
+    public void initModelb() throws ChatException {
         ArrayList<TableEntity> list = getDatab();
         List<TableEntity> tableList = new ArrayList<>(list);
         datab.setAll(tableList);
@@ -166,58 +168,58 @@ public class MainAppUI {
 
     }
 
-    private ArrayList<TableEntity> getData() {
+    private ArrayList<TableEntity> getData() throws ChatException {
         ArrayList<TableEntity> all = new ArrayList<>();
         getAge();
-        for (Copil c : copilServ.findByAge(minAge, maxAge)) {
-            ArrayList<Proba> probas = probaServ.getByCopilID(c.getId());
+        for (Copil c : this.server.findByAge(minAge, maxAge)) {
+            Proba[] probas = server.getByCopilID(c.getId());
             if (probas != null) {
-                if (probas.size() == 1)
-                    all.add(new TableEntity(c.getId(), c, probas.get(0)));
-                if (probas.size() == 2) {
-                    all.add(new TableEntity(c.getId(), c, probas.get(0), probas.get(1)));
+                if (probas.length == 1)
+                    all.add(new TableEntity(c.getId(), c, probas[0]));
+                if (probas.length == 2) {
+                    all.add(new TableEntity(c.getId(), c, probas[0], probas[1]));
                 }
             }
         }
         return all;
     }
 
-    private ArrayList<TableEntity> getDatab() {
+    private ArrayList<TableEntity> getDatab() throws ChatException {
         ArrayList<TableEntity> all = new ArrayList<>();
         int age = Integer.parseInt(ageCombo.getSelectionModel().getSelectedItem());
-        for (Copil c : copilServ.findByAge(age, age)) {
-            ArrayList<Proba> probas = probaServ.getByCopilID(c.getId());
+        for (Copil c : server.findByAge(age, age)) {
+            Proba[] probas = server.getByCopilID(c.getId());
             if (probas != null) {
                 if (age < 9) {
                     if (m50b.isSelected() && !m100b.isSelected())
-                        if (probas.size() == 1 && probas.get(0).getDistanta() == 50)
-                            all.add(new TableEntity(c.getId(), c, probas.get(0)));
+                        if (probas.length == 1 && probas[0].getDistanta() == 50)
+                            all.add(new TableEntity(c.getId(), c, probas[0]));
                     if (!m50b.isSelected() && m100b.isSelected())
-                        if (probas.size() == 1 && probas.get(0).getDistanta() == 100)
-                            all.add(new TableEntity(c.getId(), c, probas.get(0)));
+                        if (probas.length == 1 && probas[0].getDistanta() == 100)
+                            all.add(new TableEntity(c.getId(), c, probas[0]));
                     if (m50b.isSelected() && m100b.isSelected())
-                        if (probas.size() == 2)
-                            all.add(new TableEntity(c.getId(), c, probas.get(0), probas.get(1)));
+                        if (probas.length == 2)
+                            all.add(new TableEntity(c.getId(), c, probas[0], probas[1]));
                 } else if (age < 12) {
                     if (m100b.isSelected() && !m1000b.isSelected())
-                        if (probas.size() == 1 && probas.get(0).getDistanta() == 100)
-                            all.add(new TableEntity(c.getId(), c, probas.get(0)));
+                        if (probas.length == 1 && probas[0].getDistanta() == 100)
+                            all.add(new TableEntity(c.getId(), c, probas[0]));
                     if (!m100b.isSelected() && m1000b.isSelected())
-                        if (probas.size() == 1 && probas.get(0).getDistanta() == 1000)
-                            all.add(new TableEntity(c.getId(), c, probas.get(0)));
+                        if (probas.length == 1 && probas[0].getDistanta() == 1000)
+                            all.add(new TableEntity(c.getId(), c, probas[0]));
                     if (m100b.isSelected() && m1000b.isSelected())
-                        if (probas.size() == 2)
-                            all.add(new TableEntity(c.getId(), c, probas.get(0), probas.get(1)));
+                        if (probas.length == 2)
+                            all.add(new TableEntity(c.getId(), c, probas[0], probas[1]));
                 } else {
                     if (m1000b.isSelected() && !m1500b.isSelected())
-                        if (probas.size() == 1 && probas.get(0).getDistanta() == 1000)
-                            all.add(new TableEntity(c.getId(), c, probas.get(0)));
+                        if (probas.length == 1 && probas[0].getDistanta() == 1000)
+                            all.add(new TableEntity(c.getId(), c, probas[0]));
                     if (!m1000b.isSelected() && m1500b.isSelected())
-                        if (probas.size() == 1 && probas.get(0).getDistanta() == 1500)
-                            all.add(new TableEntity(c.getId(), c, probas.get(0)));
+                        if (probas.length == 1 && probas[0].getDistanta() == 1500)
+                            all.add(new TableEntity(c.getId(), c, probas[0]));
                     if (m1000b.isSelected() && m1500b.isSelected())
-                        if (probas.size() == 2)
-                            all.add(new TableEntity(c.getId(), c, probas.get(0), probas.get(1)));
+                        if (probas.length == 2)
+                            all.add(new TableEntity(c.getId(), c, probas[0], probas[1]));
                 }
             }
         }
@@ -274,67 +276,80 @@ public class MainAppUI {
         m1500.setSelected(false);
     }
 
-    private void initAll() {
+    private void initAll() throws ChatException {
         initModel();
         initModelb();
     }
 
     @FXML
-    public void save() {
+    public void save() throws ChatException {
         infoLabel.setTextFill(Paint.valueOf("#ff0000"));
         boolean error = false;
+        TableEntity t= null;
+        Proba p1 = null, p2=null;
+
         Copil copil = new Copil(1, fnameField.getText(), lnameField.getText(), ageSpinner.getValue());
         if (!(m50.isSelected() || m100.isSelected() || m1000.isSelected() || m1500.isSelected())) {
             infoLabel.setTextFill(Paint.valueOf("#ff0000"));
             infoLabel.setText("No event selected!");
         } else {
-            try {
-                copil = copilServ.save(copil);
-            } catch (ValidationException e) {
-                logger.error(e);
-                infoLabel.setText(String.valueOf(e.getMessage()));
-                error = true;
+
+            if (m50.isSelected() && !m100.isSelected()) {
+                p1 = new Proba(1, copil.getId(), 50);
             }
-            if (!error) {
-                if (m50.isSelected())
-                    try {
-                        probaServ.save(new Proba(1, copil.getId(), 50));
-                    } catch (ValidationException e) {
-                        logger.error(e);
-                        infoLabel.setText(String.valueOf(e.getMessage()));
-                    }
-                if (m100.isSelected())
-                    try {
-                        probaServ.save(new Proba(1, copil.getId(), 100));
-                    } catch (ValidationException e) {
-                        logger.error(e);
-                        infoLabel.setText(String.valueOf(e.getMessage()));
-                    }
-                if (m1000.isSelected())
-                    try {
-                        probaServ.save(new Proba(1, copil.getId(), 1000));
-                    } catch (ValidationException e) {
-                        logger.error(e);
-                        infoLabel.setText(String.valueOf(e.getMessage()));
-                    }
-                if (m1500.isSelected())
-                    try {
-                        probaServ.save(new Proba(1, copil.getId(), 1500));
-                    } catch (ValidationException e) {
-                        logger.error(e);
-                        infoLabel.setText(String.valueOf(e));
-                    }
-                initAll();
+            else if (!m50.isSelected() && m100.isSelected()) {
+                p1 = new Proba(1, copil.getId(), 100);
+            }
+            else if (m50.isSelected() && m100.isSelected()) {
+                p1 = new Proba(1, copil.getId(), 50);
+                p2 = new Proba(2, copil.getId(), 100);
+            } else if (m100.isSelected() && !m1000.isSelected()) {
+                p1 = new Proba(1, copil.getId(), 100);
+            }
+            else if (!m100.isSelected() && m1000.isSelected()) {
+            p1 = new Proba(1, copil.getId(), 100);
+            }
+            else if (m100.isSelected() && m1000.isSelected()) {
+                p1 = new Proba(1, copil.getId(), 100);
+                p2 = new Proba(2, copil.getId(), 1000);
+            } else if (m1000.isSelected() && !m1500.isSelected()) {
+                p1 = new Proba(1, copil.getId(), 1000);
+            }
+            else if (!m1000.isSelected() && m1500.isSelected()) {
+                p1 = new Proba(1, copil.getId(), 1000);
+            }else if (m1000.isSelected() && m1500.isSelected()) {
+                p1 = new Proba(1, copil.getId(), 1000);
+                p2 = new Proba(2, copil.getId(), 1500);
+            }
+
+
+
+            try {
+                TableEntity te = new TableEntity(1, copil, p1, p2);
+                server.add(te);
                 infoLabel.setTextFill(Paint.valueOf("#00ff00"));
                 infoLabel.setText("Added succesfully.");
                 clearFields();
+            } catch (ValidationException e) {
+                logger.error(e);
+                infoLabel.setText(String.valueOf(e.getMessage()));
             }
         }
 
     }
 
-    public void close() {
-        this.stage.close();
+    public void logout() {
+        try {
+            server.logout(user, this);
+        } catch (ChatException | ValidationException e) {
+            System.out.println("Logout error " + e);
+        }
+        System.exit(0);
     }
 
+    @Override
+    public void enitityAdded(TableEntity entity) throws ValidationException, ChatException {
+        tabel.getItems().add(entity);
+        tabel2.getItems().add(entity);
+    }
 }
