@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+
+    <bean id="appProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="singleton" value="true" />
+
+        <property name="ignoreResourceNotFound" value="true" />
+        <property name="location">
+            <value>atletismServer.properties</value>
+        </property>
+    </bean>
+
+    <bean id="userRepo" class="repository.jbdc.UserDbRepository">
+        <constructor-arg ref="appProperties"/>
+    </bean>
+    <bean id="copilRepo" class="repository.jbdc.CopilDbRepository">
+        <constructor-arg ref="appProperties"/>
+    </bean>
+    <bean id="probaRepo" class="repository.jbdc.ProbaDbRepository">
+        <constructor-arg ref="appProperties"/>
+    </bean>
+    <bean id="copilValidator" class="model.validator.CopilValidator"/>
+
+    <bean id="chatService" class="server.ServiceImpl">
+        <constructor-arg ref="userRepo"/>
+        <constructor-arg ref="copilRepo"/>
+        <constructor-arg ref="probaRepo"/>
+        <constructor-arg ref="copilValidator"/>
+    </bean>
+
+    <bean class="org.springframework.remoting.rmi.RmiServiceExporter">
+
+        <property name="serviceName" value="Chat"/>
+        <property name="service" ref="chatService"/>
+        <property name="serviceInterface" value="services.IService"/>
+        <property name="servicePort" value="1099"/>
+    </bean>
+
+
+
+</beans>
+

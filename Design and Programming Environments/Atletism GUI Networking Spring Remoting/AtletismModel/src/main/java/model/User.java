@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class User extends Entity {
+public class User extends Entity implements Serializable {
     private String user;
     private String password;
 

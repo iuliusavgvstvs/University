@@ -18,10 +18,13 @@ import services.ChatException;
 import services.IObserver;
 import services.IService;
 
+import java.io.Serializable;
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainAppUI implements IObserver {
+public class MainAppUI extends UnicastRemoteObject implements IObserver, Serializable {
 
     private static final Logger logger = LogManager.getLogger();
     ObservableList<TableEntity> data = FXCollections.observableArrayList();
@@ -84,6 +87,9 @@ public class MainAppUI implements IObserver {
     private Stage stage;
     private User user;
     private int minAge, maxAge;
+
+    public MainAppUI() throws RemoteException {
+    }
 
     public void setServices(IService serv, Stage stg, User u) throws ChatException {
         this.server = serv;

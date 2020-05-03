@@ -13,6 +13,8 @@ import services.ChatException;
 import services.IObserver;
 import services.IService;
 
+import java.io.Serializable;
+import java.rmi.RemoteException;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
@@ -20,7 +22,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class ServiceImpl implements IService {
+public class ServiceImpl implements IService, Serializable {
 
     UserDbRepository userRepo;
     CopilDbRepository copilRepo;
@@ -35,6 +37,7 @@ public class ServiceImpl implements IService {
         this.copilValidator = cVali;
         loggedClients = new ConcurrentHashMap<>();
     }
+
 
     @Override
     public synchronized void login(User user, IObserver client) throws ValidationException {
@@ -76,7 +79,7 @@ public class ServiceImpl implements IService {
                 try {
                     System.out.println("Notifying everyone for added new entity.");
                     entry.getValue().enitityAdded(entity);
-                } catch (ChatException | ValidationException e) {
+                } catch (ChatException | ValidationException | RemoteException e) {
                     System.err.println("Error notifying friend " + e);
                 }
             });

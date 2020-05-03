@@ -1,6 +1,8 @@
 package model;
 
-public class TableEntity {
+import java.io.Serializable;
+
+public class TableEntity implements Serializable {
     private int id;
     private Copil copil;
     private Proba p1, p2;

@@ -20,9 +20,12 @@ import services.IObserver;
 import services.IService;
 
 import java.io.IOException;
+import java.io.Serializable;
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 
 
-public class LoginUI implements IObserver {
+public class LoginUI extends UnicastRemoteObject implements IObserver, Serializable {
     private static final Logger logger = LogManager.getLogger();
     public MainAppUI mainappui = new MainAppUI();
     @FXML
@@ -34,6 +37,10 @@ public class LoginUI implements IObserver {
     User user;
     private IService Service;
     private Stage stage;
+
+    public LoginUI() throws RemoteException {
+    }
+
 
     public void setServices(IService serv) {
         this.Service = serv;

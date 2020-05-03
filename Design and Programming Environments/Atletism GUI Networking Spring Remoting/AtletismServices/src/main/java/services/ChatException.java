@@ -1,6 +1,8 @@
 package services;
 
-public class ChatException extends Exception {
+import java.io.Serializable;
+
+public class ChatException extends Exception implements Serializable {
     public ChatException() {
     }
 
