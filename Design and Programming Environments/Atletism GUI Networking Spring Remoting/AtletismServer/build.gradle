@@ -1,0 +1,20 @@
+plugins {
+    id 'java'
+}
+
+group 'Atletism GUI'
+version '2.0'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile project (':AtletismModel')
+    compile project (':AtletismServices')
+    compile project (':AtletismPersistence')
+    compile project (':AtletismNetworking')
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
