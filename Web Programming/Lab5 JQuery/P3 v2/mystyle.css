@@ -1,0 +1,33 @@
+table{
+  border: 2px;
+  border-style: solid;
+  border-color:darkolivegreen;
+}
+td{
+ border-style: solid;
+ border-style: solid;
+ border-color: black;
+}
+.tableCell{
+ padding: 20px;
+ height: 100px;
+ width: 100px;
+ text-align: center;
+}
+.cell{
+ width: 100px;
+ height: 100px;
+ display: none;
+}
+
+.arata{
+  height: 100px;
+   width: 100px;
+   display: block;
+}
+
+.ascunde{
+  height: 100px;
+   width: 100px;
+   display: none;
+}
