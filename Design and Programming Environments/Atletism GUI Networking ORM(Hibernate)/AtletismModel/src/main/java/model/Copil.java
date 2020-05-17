@@ -1,27 +1,25 @@
 package model;
 
 import javax.persistence.Id;
-import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Objects;
 
-@javax.persistence.Entity
-@Table (name = "Copil")
+
 public class Copil  implements Comparable<Copil>, Serializable {
 
+    private int id;
     private String firstName;
     private String lastName;
-    private int age, id;
+    private int age;
 
     public Copil(){
     }
 
     public Copil(int id, String firstName, String lastName, int age) {
-        //super(id);
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
-        this.id = id;
     }
 
     @Id
@@ -67,7 +65,7 @@ public class Copil  implements Comparable<Copil>, Serializable {
         this.age = age;
     }
 
-    //@Override
+
     public void setId(int id) {
         this.id = id;
     }

@@ -26,7 +26,7 @@ public class StartRpcServer {
             return;
         }
         UserDbRepository userRepo = new UserDbRepository(serverProps);
-        CopilDbRepository copilRepo = new CopilDbRepository(serverProps);
+        CopilDbRepository copilRepo = new CopilDbRepository();
 
 
         Copil c = new Copil(12,"C", "D", 13);

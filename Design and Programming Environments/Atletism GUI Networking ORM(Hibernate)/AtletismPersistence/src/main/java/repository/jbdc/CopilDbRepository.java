@@ -12,34 +12,26 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import repository.ICopilRepository;
 
 import javax.persistence.Query;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 
 public class CopilDbRepository implements ICopilRepository<Copil> {
 
     private static final Logger logger = LogManager.getLogger();
-    JdbcUtils jdbcUtils;
     static SessionFactory sessionFactory;
 
-    public CopilDbRepository(Properties props) {
-        jdbcUtils = new JdbcUtils(props);
+    public CopilDbRepository() {
         initialize();
     }
 
     static void initialize() {
 
-        final StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
-                .configure() // configures settings from hibernate.cfg.xml
-                .build();
+        final StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build();
         try {
             sessionFactory = new MetadataSources( registry ).buildMetadata().buildSessionFactory();
         }
         catch (Exception e) {
-            System.out.println(e.getMessage());
+            logger.error(e.getMessage());
             e.printStackTrace();
 
             StandardServiceRegistryBuilder.destroy( registry );
@@ -51,14 +43,11 @@ public class CopilDbRepository implements ICopilRepository<Copil> {
             Transaction tx = null;
             try {
                 tx = session.beginTransaction();
-                List<Copil> messages =
-                        session.createQuery("from Copil", Copil.class).
-                                //  setFirstResult(1).setMaxResults(5).
-                                        list();
+                List<Copil> messages = session.createQuery("from Copil", Copil.class).list();
                 tx.commit();
                 return messages.get(0);
             } catch (RuntimeException ex) {
-                System.out.println(ex.getMessage());
+                logger.error(ex.getMessage());
                 if (tx != null)
                     tx.rollback();
             }
@@ -82,7 +71,7 @@ public class CopilDbRepository implements ICopilRepository<Copil> {
                 tx.commit();
                 return messages.get(0);
             } catch (RuntimeException ex) {
-                System.out.println(ex.getMessage());
+                logger.error(ex.getMessage());
                 if (tx != null)
                     tx.rollback();
             }
@@ -108,7 +97,7 @@ public class CopilDbRepository implements ICopilRepository<Copil> {
                 else
                     return null;
             } catch (RuntimeException ex) {
-                System.out.println(ex.getMessage());
+                logger.error(ex.getMessage());
                 if (tx != null)
                     tx.rollback();
             }
@@ -126,6 +115,7 @@ public class CopilDbRepository implements ICopilRepository<Copil> {
                 tx.commit();
                 return c;
             } catch (RuntimeException ex) {
+                logger.error(ex.getMessage());
                 if (tx != null)
                     tx.rollback();
             }
@@ -133,15 +123,6 @@ public class CopilDbRepository implements ICopilRepository<Copil> {
         return null;
     }
 
-    public void clear() {
-        Connection conn =jdbcUtils.getConnection();
-        String sql = "DELETE from Copil";
-        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.executeUpdate();
-        } catch (SQLException ex) {
-            logger.error(ex);
-        }
-    }
 
 
 }
