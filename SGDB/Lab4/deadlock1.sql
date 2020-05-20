@@ -1,6 +1,8 @@
 SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
 BEGIN TRAN;
-UPDATE Producator SET licenta='lic9999999' WHERE nume='Sun Pharma';
-WAITFOR DELAY '00:00:05';
 UPDATE Client SET nume='Jen' WHERE prenume='Ion';
+WAITFOR DELAY '00:00:05';
+UPDATE Producator SET licenta='lic9999999' WHERE nume='Sun Pharma';
+
+
 COMMIT TRAN;
