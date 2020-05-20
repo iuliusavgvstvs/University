@@ -5,11 +5,12 @@ $sql = "SELECT destination_station FROM routes WHERE departure_station = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $_GET['q']);
 $stmt->execute();
-$res = $stmt->get_result();
+$stmt->bind_result($destination_station);
+
 echo "<table>";
-while ($row = mysqli_fetch_assoc($res)) {
+while ($stmt->fetch()) {
         echo "<tr><th>";
-        echo $row['destination_station']; 
+        echo $destination_station; 
         echo "</th></tr>";
     }
 echo "</table>";
