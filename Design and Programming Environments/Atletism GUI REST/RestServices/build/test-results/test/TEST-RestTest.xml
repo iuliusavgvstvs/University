@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="RestTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-05-28T20:03:02" hostname="HP-Envy" time="0.007">
+  <properties/>
+  <testcase name="controllertest" classname="RestTest" time="0.007"/>
+  <system-out><![CDATA[Server properties set. 
+-- listing properties --
+chat.jdbc.url=jdbc:sqlite:C:/Users/Iuliu/OneDrive/D...
+chat.jdbc.driver=org.sqlite.JDBC
+chat.server.port=55556
+Deleting proba ... 70
+Updating proba ...
+Deleting proba ... 68
+Deleting proba ... 69
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
