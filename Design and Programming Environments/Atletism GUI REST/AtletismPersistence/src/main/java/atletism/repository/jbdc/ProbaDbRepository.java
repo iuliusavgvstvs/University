@@ -6,6 +6,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Component;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -23,7 +24,8 @@ public class ProbaDbRepository implements IProbaRepository<Proba> {
 
             Properties serverProps=new Properties();
             try {
-                serverProps.load(ProbaDbRepository.class.getResourceAsStream("/atletismServer.properties"));
+                //serverProps.load(ProbaDbRepository.class.getResourceAsStream("/atletismServer.properties"));
+                serverProps.load(new FileInputStream("C:\\Users\\Iuliu\\OneDrive\\Desktop\\University\\Design and Programming Environments\\Atletism GUI REST\\AtletismServer\\src\\main\\resources\\atletismServer.properties"));
                 System.out.println("Server properties set. ");
                 serverProps.list(System.out);
             } catch (IOException e) {
