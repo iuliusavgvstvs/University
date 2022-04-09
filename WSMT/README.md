@@ -1,0 +1,1 @@
+This repository contains assignments and other related work for Web Services and Middleware Technologies class (WSMT), part of Distributed Systems over the Interned (SDI) master's degree program (second semester).
