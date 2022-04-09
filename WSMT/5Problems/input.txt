@@ -1,0 +1,8 @@
+0 0 bread
+1 0 ant
+2 0 wolf
+3 0 rabbit
+4 0 chair
+5 0 menu
+6 0 internet
+7 0 argument
