@@ -22,15 +22,6 @@ class RowElement {
   ArrayList<String> getValues() {
     return this.values;
   }
-
-  String getValue(int index) {
-    try {
-      return this.values.get(index);
-    } catch (Exception e) {
-      return null;
-    }
-  }
-
 }
 
 class Main {
@@ -75,7 +66,7 @@ class Main {
     for (int i = 0; i < elements.size(); i++) {
       RowElement row = elements.get(i);
       for (int j = 0; j < row.getValues().size(); j++) {
-        writer.append(row.getValue(j));
+        writer.append(row.getValues().get(j));
         writer.append(' ');
       }
       writer.append('\n');
