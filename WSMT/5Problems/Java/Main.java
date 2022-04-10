@@ -136,7 +136,7 @@ class Main {
     ArrayList<RowElement> elements = readFromFile(args[0]);
 
     // TO DO: Change output file path
-    String outputFilePath = "C:\\Users\\Iuliu\\OneDrive\\Desktop\\Things\\GitHubRepos\\University\\WSMT\\5Problems\\output.txt";
+    String outputFilePath = "C:\\Users\\Iuliu\\OneDrive\\Desktop\\Things\\GitHubRepos\\University\\WSMT\\5Problems\\Java\\output.txt";
 
     quickSort(elements, 0, elements.size() - 1);
     writeToFile(outputFilePath, elements);
