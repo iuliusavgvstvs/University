@@ -82,7 +82,7 @@ class Main {
   }
 
   /*
-   * compares two strings
+   * compares two arrays of strings a and b
    * returns 1 if a > b
    * 0 if equal
    * -1 if a < b
