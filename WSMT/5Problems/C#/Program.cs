@@ -11,7 +11,7 @@ namespace C_
     {
       Values = vals;
     }
-    int row;
+    public int Row { get; }
     public List<string> Values { get; set; }
 
     public void AddValue(int column, string value)
@@ -73,17 +73,71 @@ namespace C_
         await file.WriteLineAsync();
       }
     }
+
+    // Swap 2 elements of type RowElement in a List<RowElement>
+    static void Swap(List<RowElement> list, int i, int j)
+    {
+      RowElement temp = list[i];
+      list[i] = list[j];
+      list[j] = temp;
+    }
+
+
+    /*
+      * compares two arrays of strings a and b
+      * returns 1 if a > b
+      * 0 if equal
+      * -1 if a < b
+      */
+    static int CompareRows(List<string> a, List<string> b)
+    {
+      for (int i = 0; i < a.Count; i++)
+      {
+        string x = a[i];
+        if (i >= b.Count)
+        {
+          break;
+        }
+        string y = b[i];
+        int result = String.Compare(x, y);
+        if (result > 0)
+          return 1;
+        if (result < 0)
+          return -1;
+      }
+      return 0;
+    }
+
+    static int Partition(List<RowElement> elements, int low, int high)
+    {
+      RowElement pivot = elements[high];
+      int i = (low - 1);
+      for (int j = low; j <= high - 1; j++)
+      {
+        if (CompareRows(elements[j].Values, pivot.Values) < 1)
+        {
+          i++;
+          Swap(elements, i, j);
+        }
+      }
+      Swap(elements, i + 1, high);
+      return (i + 1);
+    }
+
+    static void QuickSort(List<RowElement> elements, int low, int high)
+    {
+      if (low < high)
+      {
+        int pi = Partition(elements, low, high);
+        QuickSort(elements, low, pi - 1);
+        QuickSort(elements, pi + 1, high);
+      }
+    }
     static void Main(string[] args)
     {
-
       List<RowElement> elements = ReadFromFile(args[0]);
-      //   foreach (RowElement elem in elements)
-      //   {
-      //     foreach (string val in elem.Values)
-      //       Console.WriteLine(val);
-      //     Console.WriteLine();
-      //   }
       string OutputFilePath = "C:\\Users\\Iuliu\\OneDrive\\Desktop\\Things\\GitHubRepos\\University\\WSMT\\5Problems\\C#\\output.txt";
+      QuickSort(elements, 0, elements.Count - 1);
       WriteToFile(OutputFilePath, elements);
 
     }
