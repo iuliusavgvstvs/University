@@ -7,8 +7,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import javax.lang.model.util.ElementScanner6;
-
 class RowElement {
   int row;
   HashMap<Integer, String> values = new HashMap<>();
