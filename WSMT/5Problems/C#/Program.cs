@@ -9,6 +9,7 @@ namespace C_
   {
     public RowElement(int row, SortedDictionary<int, string> vals)
     {
+      Row = row;
       Values = vals;
     }
     public int Row { get; }
