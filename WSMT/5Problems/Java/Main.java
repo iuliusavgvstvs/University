@@ -5,21 +5,24 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+
+import javax.lang.model.util.ElementScanner6;
 
 class RowElement {
   int row;
-  ArrayList<String> values = new ArrayList<>();
+  HashMap<Integer, String> values = new HashMap<>();
 
-  RowElement(int row, ArrayList<String> values) {
+  RowElement(int row, HashMap<Integer, String> values) {
     this.row = row;
     this.values = values;
   }
 
   void addValue(int column, String value) {
-    this.values.add(column, value);
+    this.values.put(column, value);
   }
 
-  ArrayList<String> getValues() {
+  HashMap<Integer, String> getValues() {
     return this.values;
   }
 }
@@ -52,8 +55,8 @@ class Main {
         row.addValue(columnData, valueData);
         elements.set(index, row);
       } else {
-        ArrayList<String> val = new ArrayList<>();
-        val.add(columnData, valueData);
+        HashMap<Integer, String> val = new HashMap<>();
+        val.put(columnData, valueData);
         elements.add(new RowElement(rowData, val));
       }
     }
@@ -87,19 +90,24 @@ class Main {
    * 0 if equal
    * -1 if a < b
    */
-  static int compareRows(ArrayList<String> a, ArrayList<String> b) {
-    for (int i = 0; i < a.size(); i++) {
-      String x = a.get(i);
-      String y = b.get(i);
-      if (x != null && y != null) {
-        int result = x.compareTo(y);
-        if (result > 0)
-          return 1;
-        if (result < 0)
-          return -1;
-      }
+  static int compareRows(HashMap<Integer, String> a, HashMap<Integer, String> b) {
+    int mi = a.size();
+    if (b.size() < mi)
+      mi = b.size();
+    int i = 0;
+    while (i < mi) {
+      if (a.get(i).compareTo(b.get(i)) == 0)
+        i++;
+      else if (a.get(i).compareTo(b.get(i)) < 0)
+        return -1;
+      else
+        return 1;
     }
-    return 0;
+    if (a.size() == b.size())
+      return 0;
+    if (a.size() < b.size())
+      return -1;
+    return 1;
   }
 
   static int partition(ArrayList<RowElement> elements, int low, int high) {

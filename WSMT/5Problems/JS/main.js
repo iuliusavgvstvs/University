@@ -7,8 +7,8 @@ class RowElement {
     this.values = values;
   }
 
-  addValue(val) {
-    this.values.push(val);
+  addValue(column, value) {
+    this.values[column] = value;
   }
 
   getValues() {
@@ -34,7 +34,7 @@ class Main {
       const valueData = parsedData[2];
       let row = this.getRow(elements, rowData);
       if (row) {
-        row.getValues()[columnData] = valueData;
+        row.addValue(columnData, valueData);
       } else {
         let val = [];
         val[columnData] = valueData;

@@ -7,16 +7,16 @@ namespace C_
 
   public class RowElement
   {
-    public RowElement(int row, List<string> vals)
+    public RowElement(int row, SortedDictionary<int, string> vals)
     {
       Values = vals;
     }
     public int Row { get; }
-    public List<string> Values { get; set; }
+    public SortedDictionary<int, string> Values { get; set; }
 
     public void AddValue(int column, string value)
     {
-      Values.Insert(column, value);
+      Values.Add(column, value);
     }
 
   }
@@ -52,8 +52,8 @@ namespace C_
         }
         else
         {
-          List<string> val = new List<string>();
-          val.Add(valueData);
+          SortedDictionary<int, string> val = new SortedDictionary<int, string>();
+          val.Add(columnData, valueData);
           elements.Add(new RowElement(rowData, val));
         }
       }
@@ -66,9 +66,9 @@ namespace C_
 
       foreach (RowElement element in elements)
       {
-        foreach (string val in element.Values)
+        foreach (KeyValuePair<int, string> kvp in element.Values)
         {
-          await file.WriteAsync(val + " ");
+          await file.WriteAsync(kvp.Value + " ");
         }
         await file.WriteLineAsync();
       }
@@ -89,23 +89,26 @@ namespace C_
       * 0 if equal
       * -1 if a < b
       */
-    static int CompareRows(List<string> a, List<string> b)
+    static int CompareRows(SortedDictionary<int, string> a, SortedDictionary<int, string> b)
     {
-      for (int i = 0; i < a.Count; i++)
+      int mi = a.Count;
+      if (b.Count < mi)
+        mi = b.Count;
+      int i = 0;
+      while (i < mi)
       {
-        string x = a[i];
-        if (i >= b.Count)
-        {
-          break;
-        }
-        string y = b[i];
-        int result = String.Compare(x, y);
-        if (result > 0)
-          return 1;
-        if (result < 0)
+        if (String.Compare(a[i], b[i]) == 0)
+          i++;
+        else if (String.Compare(a[i], b[i]) < 0)
           return -1;
+        else
+          return 1;
       }
-      return 0;
+      if (a.Count == b.Count)
+        return 0;
+      if (a.Count < b.Count)
+        return -1;
+      return 1;
     }
 
     static int Partition(List<RowElement> elements, int low, int high)
@@ -139,7 +142,6 @@ namespace C_
       string OutputFilePath = "C:\\Users\\Iuliu\\OneDrive\\Desktop\\Things\\GitHubRepos\\University\\WSMT\\5Problems\\C#\\output.txt";
       QuickSort(elements, 0, elements.Count - 1);
       WriteToFile(OutputFilePath, elements);
-
     }
   }
 }

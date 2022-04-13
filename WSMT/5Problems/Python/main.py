@@ -1,4 +1,3 @@
-from asyncio.windows_events import NULL
 import sys
 
 
@@ -7,14 +6,17 @@ class RowElement:
         self.row = row
         self.values = values
 
-    def addValue(self, val):
-        self.values.append(val)
+    def addValue(self, column, value):
+        self.values[column] = value
+
+    def getValues(self):
+        return self.values
 
 
 class Main:
     def getRow(self, array, row):
         if row > len(array) - 1:
-            return NULL
+            return None
         return array[row]
 
     def readFromFile(self, filePath):
@@ -26,14 +28,11 @@ class Main:
             columnData = int(parsedData[1])
             valueData = parsedData[2]
             row = self.getRow(elements, rowData)
-            if row != NULL:
-                row.addValue(valueData)
-                index = elements.index(row)
-                elements.pop(index)
-                elements.insert(index, row)
+            if row != None:
+                row.addValue(columnData, valueData)
             else:
-                val = []
-                val.insert(columnData, valueData)
+                val = {}
+                val[columnData] = valueData
                 rowElem = RowElement(rowData, val)
                 elements.insert(rowData, rowElem)
         file.close()
@@ -42,49 +41,59 @@ class Main:
     def writeToFile(self, filePath, elements):
         file = open(filePath, 'w')
         for x in elements:
-            for y in x.values:
-                file.write(y + ' ')
+            for y in sorted(x.getValues().keys()):
+                file.write(x.getValues()[y] + ' ')
             file.write('\n')
         file.close()
+
+    # Swap 2 elements of type RowElement in a list
+    def swap(self, list, i, j):
+        list[i], list[j] = list[j], list[i]
+
+    # compares two arrays of strings a and b
+    # returns 1 if a > b
+    # 0 if equal
+    # -1 if a < b
 
     def compareRows(self, a, b):
         mi = len(a)
         if len(b) < mi:
             mi = len(b)
-        for i in range(0, mi):
-            x = a[i]
-            y = b[i]
-            if x > y:
-                return 1
-            if x < y:
+        i = 0
+        while (i < mi):
+            if a[i] == b[i]:
+                i = i+1
+            elif a[i] < b[i]:
                 return -1
-        return 0
+            else:
+                return 1
+        if len(a) == len(b):
+            return 0
+        if len(a) < len(b):
+            return -1
+        return 1
 
-    def partition(self, start, end, array):
-        pivot_index = start
-        pivot = array[pivot_index]
-        while start < end:
-            while start < len(array) and (self.compareRows(array[start].values, pivot.values) < 1):
-                start += 1
-            while self.compareRows(array[end].values, pivot.values) > 0:
-                end -= 1
-            if(start < end):
-                array[start], array[end] = array[end], array[start]
-        array[end], array[pivot_index] = array[pivot_index], array[end]
-        return end
+    def partition(self, elements, low, high):
+        pivot = elements[high]
+        i = low - 1
+        for j in range(low, high):
+            if self.compareRows(elements[j].getValues(), pivot.getValues()) < 1:
+                i = i+1
+                self.swap(elements, i, j)
+        self.swap(elements, i+1, high)
+        return i+1
 
-    def quick_sort(self, start, end, array):
-        if (start < end):
-            p = self.partition(start, end, array)
-            self.quick_sort(start, p - 1, array)
-            self.quick_sort(p + 1, end, array)
+    def quick_sort(self, elements, low, high):
+        if (low < high):
+            p = self.partition(elements, low, high)
+            self.quick_sort(elements, low, p - 1)
+            self.quick_sort(elements, p + 1, high)
 
     def main(self):
         filePath = sys.argv[1]
-        #filePath = 'C:\\Users\\Iuliu\\OneDrive\\Desktop\\Things\\GitHubRepos\\University\\WSMT\\5Problems\\input1.txt'
         elements = self.readFromFile(filePath)
         outputFilePath = 'C:\\Users\\Iuliu\\OneDrive\\Desktop\\Things\\GitHubRepos\\University\\WSMT\\5Problems\\Python\\output.txt'
-        self.quick_sort(0, len(elements)-1, elements)
+        self.quick_sort(elements, 0, len(elements)-1)
         self.writeToFile(outputFilePath, elements)
 
 
