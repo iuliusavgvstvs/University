@@ -11,7 +11,7 @@ Ex: word: (file#1, line#1, line#2, ….) (file#4, line#1, line#2,…) …)
 1. Open the project in IntelliJ Idea or any other Java IDE
 2. Build the jar file
 3. Transfer the jar file to the hadoop master VM
-4. Start hdfs with `start-hdfs.sh`
+4. Start hdfs with `start-dfs.sh`
 5. Start yarh with `start-yarn.sh`
 6. Make sure to copy the input files from the input directory to the hadoop distributed file system with `hdfs dfs -copyFromLocal /input /input`
 7. Do the same for the stopwords file `hdfs dfs copyFromLocal stopwords.txt /`
